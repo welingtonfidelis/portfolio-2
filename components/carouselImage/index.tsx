@@ -10,7 +10,7 @@ interface Props {
 
 export const CarouselImage: React.FC<Props> = (props) => {
   
-  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }: any) => (
     <FaChevronLeft
       {...props}
       className={
@@ -23,7 +23,7 @@ export const CarouselImage: React.FC<Props> = (props) => {
     >
     </FaChevronLeft>
   );
-  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+  const SlickArrowRight = ({ currentSlide, slideCount, ...props }: any) => (
     <FaChevronRight
       {...props}
       className={
