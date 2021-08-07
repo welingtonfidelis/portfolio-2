@@ -15,6 +15,7 @@ import {
   FaImages,
   FaMoon,
   FaSun,
+  FaYoutube,
 } from "react-icons/fa";
 
 import { CarouselImage } from "../components/carouselImage";
@@ -37,48 +38,6 @@ export default function Home() {
   });
 
   const [form] = Form.useForm();
-
-  const navigationList = [
-    {
-      ref: "#banner",
-      title: "Home",
-    },
-    {
-      ref: "#about",
-      title: "About",
-    },
-    {
-      ref: "#services",
-      title: "Services",
-    },
-    {
-      ref: "#projects",
-      title: "Projects",
-    },
-    {
-      ref: "#contact",
-      title: "Contact",
-    },
-  ];
-
-  const socialMediaList = [
-    {
-      ref: "#",
-      icon: <FaLinkedin />,
-    },
-    {
-      ref: "#",
-      icon: <FaInstagram />,
-    },
-    {
-      ref: "#",
-      icon: <FaFacebook />,
-    },
-    {
-      ref: "#",
-      icon: <FaTwitter />,
-    },
-  ];
 
   const handleNavigation = () => {
     if (window.innerWidth <= 900) {
@@ -160,13 +119,31 @@ export default function Home() {
     <div id="home-page">
       <div className="navigation">
         <ul>
-          {navigationList.map((item, index) => (
-            <li key={index}>
-              <a href={item.ref} onClick={handleNavigation}>
-                {item.title}
-              </a>
-            </li>
-          ))}
+          <li>
+            <a href="#banner" onClick={handleNavigation}>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#about" onClick={handleNavigation}>
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#services" onClick={handleNavigation}>
+              Services
+            </a>
+          </li>
+          <li>
+            <a href="#projects" onClick={handleNavigation}>
+              Projects
+            </a>
+          </li>
+          <li>
+            <a href="#contact" onClick={handleNavigation}>
+              Contact
+            </a>
+          </li>
         </ul>
 
         <div className="theme-switch" onClick={handleSwitchTheme}>
@@ -209,11 +186,26 @@ export default function Home() {
           </div>
 
           <ul className="social-media">
-            {socialMediaList.map((item, index) => (
-              <li key={index}>
-                <a href={item.ref}>{item.icon}</a>
-              </li>
-            ))}
+            <li>
+              <a href="https://www.linkedin.com/in/welington-fidelis-de-sousa-3944a6127" target="_blank">
+                <FaLinkedin />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/fideliswelington/" target="_blank">
+                <FaInstagram />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UCNlGJFOOjLwCtlvVbxV05qQ" target="_blank">
+                <FaYoutube />
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/welingtonfsousa" target="_blank">
+                <FaTwitter />
+              </a>
+            </li>
           </ul>
         </section>
 
@@ -257,8 +249,8 @@ export default function Home() {
           <div className="content">
             {informations.services.map((item, index) => (
               <div className="service-bx" key={index}>
-                <img src={item.image_url} alt={item.title + "_image"} />
-                <h2>{item.title}</h2>
+                <img src={item.image_url} alt={item.position + "_image"} />
+                <h2>{item.position}</h2>
                 <p>{item.description}</p>
               </div>
             ))}
@@ -299,7 +291,7 @@ export default function Home() {
                     {item.publication_url && (
                       <a
                         title="Publication"
-                        href={item.github_url}
+                        href={item.publication_url}
                         target="_blank"
                       >
                         <FaGlobeAmericas />

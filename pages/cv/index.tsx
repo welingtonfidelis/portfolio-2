@@ -15,6 +15,8 @@ import {
   FaArrowCircleLeft,
 } from "react-icons/fa";
 
+import informations from "../../docs/informations.json";
+
 export default function Cv() {
   const [cvHtml, setCvHtml] = useState("");
 
@@ -55,9 +57,11 @@ export default function Cv() {
 
   return (
     <div id="cv-page">
-      <div className="back-page" onClick={() => Router.push("/")}>
-        <FaArrowCircleLeft />
-        <span>Back to Portfolio</span>
+      <div className="top-bar">
+        <div className="back-page" onClick={() => Router.push("/")}>
+          <FaArrowCircleLeft />
+          <span>Back to Portfolio</span>
+        </div>
       </div>
 
       <div className="container">
@@ -103,7 +107,7 @@ export default function Cv() {
                   <FaLinkedin />
                 </span>
                 <span className="text">
-                  https://www.linkedin.com/in/welington-fidelis-de-sousa-3944a6127
+                  linkedin.com/in/welington-fidelis-de-sousa-3944a6127
                 </span>
               </li>
               <li>
@@ -118,12 +122,6 @@ export default function Cv() {
           <div className="contact-info education">
             <h3 className="title">Education</h3>
             <ul>
-              <li>
-                <h5>2015 - 2018</h5>
-                <h4>Computer Science Degree</h4>
-                <h4>IFSULDEMINAS Campus Passos, Minas Gerais</h4>
-              </li>
-
               <li>
                 <h5>2015 - 2018</h5>
                 <h4>Computer Science Degree</h4>
@@ -144,7 +142,7 @@ export default function Cv() {
               <li>
                 <span className="text">English</span>
                 <span className="percent">
-                  <div style={{ width: "40%" }}></div>
+                  <div style={{ width: "50%" }}></div>
                 </span>
               </li>
             </ul>
@@ -170,82 +168,31 @@ export default function Cv() {
 
           <div className="about">
             <h2 className="title-2">Experience</h2>
-            <div className="box">
-              <div className="year-company">
-                <h5>2021 - present</h5>
-                <h5>Venturus</h5>
+            {informations.services.map((item, index) => (
+              <div className="box" key={index}>
+                <div className="year-company">
+                  <h5>{`${item.start} - ${item.end}`}</h5>
+                  <h5>{item.company_name}</h5>
+                </div>
+                <div className="text">
+                  <h4>{item.position}</h4>
+                  <p>{item.description}</p>
+                </div>
               </div>
-              <div className="text">
-                <h4>Back End Developer</h4>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Blanditiis quo porro saepe ex dolore vitae. Sequi, tempore
-                  veniam eius recusandae provident neque ab nostrum natus, iure,
-                  veritatis libero est dolor?
-                </p>
-              </div>
-            </div>
-            <div className="box">
-              <div className="year-company">
-                <h5>2020 - 2021</h5>
-                <h5>Tech4Humans</h5>
-              </div>
-              <div className="text">
-                <h4>Back End Developer</h4>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Blanditiis quo porro saepe ex dolore vitae. Sequi, tempore
-                  veniam eius recusandae provident neque ab nostrum natus, iure,
-                  veritatis libero est dolor?
-                </p>
-              </div>
-            </div>
-
-            <div className="box">
-              <div className="year-company">
-                <h5>2018 - 2020</h5>
-                <h5>Ranor Rastreamento</h5>
-              </div>
-              <div className="text">
-                <h4>Back End Developer</h4>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Blanditiis quo porro saepe ex dolore vitae. Sequi, tempore
-                  veniam eius recusandae provident neque ab nostrum natus, iure,
-                  veritatis libero est dolor?
-                </p>
-              </div>
-            </div>
+            ))}
 
             <div className="about skills">
               <h2 className="title-2">Professional Skills</h2>
-              <div className="box">
-                <h4>Html</h4>
-                <div className="percent">
-                  <div style={{ width: "80%" }}></div>
-                </div>
-              </div>
-
-              <div className="box">
-                <h4>CSS</h4>
-                <div className="percent">
-                  <div style={{ width: "80%" }}></div>
-                </div>
-              </div>
-
-              <div className="box">
-                <h4>Javascript</h4>
-                <div className="percent">
-                  <div style={{ width: "80%" }}></div>
-                </div>
-              </div>
-
-              <div className="box">
-                <h4>React</h4>
-                <div className="percent">
-                  <div style={{ width: "80%" }}></div>
-                </div>
-              </div>
+              {
+                informations.skills.map((item, index) => (
+                  <div className="box">
+                    <h4>{item.title}</h4>
+                    <div className="percent">
+                      <div style={{ width: `${item.level}%` }}></div>
+                    </div>
+                  </div>
+                ))
+              }
             </div>
 
             <div className="about interest">

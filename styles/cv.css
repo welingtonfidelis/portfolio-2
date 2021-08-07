@@ -1,4 +1,3 @@
-
 #cv-page {
   background: lightblue;
   height: 100vh;
@@ -7,18 +6,22 @@
   padding: 10px;
 }
 
+#cv-page .top-bar {
+  display: flex;
+}
+
 #cv-page .back-page {
   font-size: 1.2em;
-    display: flex;
-    align-items: center;
-    color: #333;
-    margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  color: #333;
+  margin-bottom: 5px;
 }
 
 #cv-page .back-page svg {
   margin-right: 5px;
   font-size: 1.4em;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 #cv-page .back-page:hover {
@@ -40,6 +43,10 @@
   position: relative;
   background: #003147;
   padding: 40px;
+}
+
+#cv-page .container .left-side ul {
+  padding-left: 0px;
 }
 
 #cv-page .profile-text {
@@ -100,7 +107,6 @@
 }
 
 #cv-page .contact-info ul li {
-  position: relative;
   list-style: none;
   margin: 10px 0;
   cursor: pointer;
@@ -288,4 +294,4 @@
   #cv-page .skills .box {
     grid-template-columns: repeat(1, 1fr);
   }
-} 
+}

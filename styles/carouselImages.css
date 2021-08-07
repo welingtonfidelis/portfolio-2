@@ -28,3 +28,12 @@
 #carousel-image .slick-dots-bottom {
   bottom: -25px;
 }
+
+#carousel-image .slick-list {
+  max-height: 80vh;
+}
+
+#carousel-image .slick-current {
+  max-height: 75vh;
+  overflow: auto;
+}
