@@ -1,0 +1,16 @@
+.ant-modal {
+  width: 90vw !important;
+}
+
+.ant-modal-content {
+  background: var(--white);
+}
+
+.ant-modal-close-x {
+  color: var(--black);
+  transition: .5s;
+}
+
+.ant-modal-close-x:hover {
+  color: var(--button);
+}

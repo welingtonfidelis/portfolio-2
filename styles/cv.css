@@ -1,0 +1,291 @@
+
+#cv-page {
+  background: lightblue;
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+  padding: 10px;
+}
+
+#cv-page .back-page {
+  font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#cv-page .back-page svg {
+  margin-right: 5px;
+  font-size: 1.4em;
+  transition: .5s;
+}
+
+#cv-page .back-page:hover {
+  cursor: pointer;
+}
+
+#cv-page .back-page:hover > svg {
+  color: #03a9f4;
+}
+
+#cv-page .container {
+  background: #fff;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  box-shadow: 0 35px 55px rgba((0, 0, 0, 0.1));
+}
+
+#cv-page .container .left-side {
+  position: relative;
+  background: #003147;
+  padding: 40px;
+}
+
+#cv-page .profile-text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#cv-page .profile-text .img-bx {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+#cv-page .profile-text .img-bx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#cv-page .profile-text h2 {
+  color: #fff;
+  font-size: 1.5em;
+  margin-top: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.4em;
+}
+
+#cv-page .profile-text h2 span {
+  font-size: 0.8em;
+  font-weight: 300;
+}
+
+#cv-page .contact-info {
+  padding-top: 40px;
+}
+
+#cv-page .title {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+#cv-page .contact-info ul {
+  position: relative;
+}
+
+#cv-page .contact-info ul li {
+  position: relative;
+  list-style: none;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+#cv-page .contact-info ul li .icon {
+  display: inline-block;
+  width: 30px;
+  font-size: 18px;
+  color: #03a9f4;
+}
+
+#cv-page .contact-info ul li span {
+  color: #fff;
+  font-weight: 300;
+}
+
+#cv-page .contact-info.education {
+  margin-bottom: 15px;
+}
+
+#cv-page .contact-info.education h5 {
+  color: #0ca9f4;
+  font-weight: 500;
+}
+
+#cv-page .contact-info.education h4:nth-child(2) {
+  color: #fff;
+  font-weight: 500;
+}
+
+#cv-page .contact-info.education h4 {
+  color: #fff;
+  font-weight: 300;
+}
+
+#cv-page .contact-info.language .percent {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  background: #081921;
+  display: block;
+  margin-top: 5px;
+}
+
+#cv-page .contact-info.language .percent div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #03a9f4;
+}
+
+#cv-page .container .right-side {
+  position: relative;
+  background: #fff;
+  padding: 40px;
+}
+
+#cv-page .about {
+  margin-bottom: 50px;
+}
+
+#cv-page .about:last-child {
+  margin-bottom: 0;
+}
+
+#cv-page .title-2 {
+  color: #003147;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+#cv-page p {
+  color: #333;
+}
+
+#cv-page .about .box {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0;
+}
+
+#cv-page .about .box .year-company {
+  min-width: 150px;
+}
+
+#cv-page .about .box .year-company h5 {
+  text-transform: uppercase;
+  color: #848c90;
+  font-weight: 600;
+}
+
+#cv-page .about .box .text h4 {
+  text-transform: uppercase;
+  color: #2a7da2;
+  font-size: 16px;
+}
+
+#cv-page .skills .box {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+#cv-page .skills .box h4 {
+  text-transform: uppercase;
+  color: #848c99;
+  font-weight: 500;
+}
+
+#cv-page .skills .box .percent {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  background: #f0f0f0;
+}
+
+#cv-page .skills .box .percent div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #03a9f4;
+}
+
+#cv-page .interest ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-left: 0;
+}
+
+#cv-page .interest ul li {
+  list-style: none;
+  color: #333;
+  font-weight: 500;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+#cv-page .interest ul li svg {
+  color: #03a9f4;
+  font-size: 18px;
+  width: 20px;
+  margin-right: 5px;
+}
+
+#cv-page .main-website {
+  margin-top: 20px;
+  color: #111;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  #cv-page {
+    padding: 5px;
+  }
+  #cv-page .container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #cv-page .interest ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  #cv-page .about .box {
+    flex-direction: column;
+  }
+
+  #cv-page .about .box .year-company {
+    margin-bottom: 5px;
+  }
+
+  #cv-page .interest ul {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #cv-page .skills .box {
+    grid-template-columns: repeat(1, 1fr);
+  }
+} 

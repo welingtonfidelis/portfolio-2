@@ -1,0 +1,30 @@
+#carousel-image .slick-slider {
+  margin: 0 8px;
+}
+
+#carousel-image .slick-slider svg {
+  color: var(--black);
+  transition: .5s;
+}
+
+#carousel-image .slick-slider svg:hover {
+  color: var(--button);
+}
+
+#carousel-image h2 {
+  color: var(--black);
+  text-align: center;
+}
+
+#carousel-image .ant-carousel .slick-dots button {
+  background: var(--black);
+  transition: .5s;
+}
+
+#carousel-image .ant-carousel .slick-dots button:hover {
+  background: var(--button);
+}
+
+#carousel-image .slick-dots-bottom {
+  bottom: -25px;
+}
