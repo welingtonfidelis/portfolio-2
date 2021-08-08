@@ -12,11 +12,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    const {
-      email,
-      subject,
-      message,
-    } = req.body;
+    const { email, subject, message } = req.body;  
 
     sgMail.setApiKey(SENDGRID_API_KEY);
     await sgMail.send({

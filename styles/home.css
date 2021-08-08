@@ -3,7 +3,6 @@
   height: 100%;
   color: var(--white);
   background: var(--white);
-  transition: .5s;
 }
 
 #home-page .navigation {
@@ -303,7 +302,7 @@
 
 #home-page .projects .content {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   margin: 40px 0;
 }
@@ -479,6 +478,10 @@
     width: 250px;
     height: 250px;
   }
+
+  #home-page .projects .content {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 700px) {
@@ -487,10 +490,6 @@
   }
 
   #home-page .projects .content {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  #home-page .testimonials .content {
     grid-template-columns: repeat(1, 1fr);
   }
 
