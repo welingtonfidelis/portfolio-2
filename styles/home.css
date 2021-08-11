@@ -15,7 +15,6 @@
   flex-direction: column;
   border-right: 1px solid rgba(0, 0, 0, 0.05);
   background: var(--white2);
-  transition: .5s;
   z-index: 999;
 }
 
@@ -83,7 +82,6 @@
   flex: 1;
   margin-left: 250px;
   overflow: auto;
-  transition: .5s;
 }
 
 #home-page .main .topbar {
@@ -99,7 +97,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: .5s;
 }
 
 #home-page .main .topbar .logo {
@@ -133,7 +130,6 @@
   padding: 80px 20px 0 20px;
   background: var(--white);
   color: var(--black);
-  transition: .5s;
 }
 
 #home-page .banner {
@@ -485,6 +481,17 @@
 }
 
 @media (max-width: 700px) {
+  #home-page .about .content {
+    flex-direction: column;
+  }
+  #home-page .about .content .text-bx {
+    width: 100%;
+  }
+
+  #home-page .about .content .img-bx {
+    margin-left: 0;
+  }
+  
   #home-page .services .content {
     grid-template-columns: repeat(1, 1fr);
   }

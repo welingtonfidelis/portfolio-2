@@ -181,7 +181,7 @@ export default function Home() {
             <h3>Welington Fidelis de Sousa</h3>
             <p>I'm a Full Stack Web Developer.</p>
             <a href="#" className="btn" onClick={() => Router.push("/cv")}>
-              Download My CV
+              View My CV
             </a>
           </div>
 
@@ -217,14 +217,18 @@ export default function Home() {
           <div className="content">
             <div className="text-bx">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. At,
-                reiciendis recusandae, enim, aperiam mollitia hic exercitationem
-                quaerat adipisci sed excepturi sint nemo eius non ratione? Eos
-                in enim minus repellat. Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Ut suscipit repellat neque. Quibusdam impedit
-                doloremque eum voluptate fuga quam quisquam officiis vel
-                repellat, iusto reiciendis itaque quasi quis reprehenderit
-                aspernatur.
+                Graduado em Ciência da Computação desde 2018, apaixonado por tecnologia, família e natureza, 
+                estou sempre em busca de melhorar, compartilhar o que já sei e me divertir criando qualquer coisa que me 
+                disperte interesse em ver funcionando.
+                <br/><br/>
+                Tentei ficar só no Back-End, mas honestamente, adoro uma tela com botões e inputs funcionando, 
+                então estou sempre mexendo com Front-End também 😝. Nada contra o modelo de desenvolvimento desktop,
+                mas acho que Web é tudo de bom, então é pra lá que direcionei meu foco no mundo dev, aprendendo HTML, CSS e 
+                JavaScript e partindo pro mais avançado depois, como Node.js e React.js.
+                <br/><br/>
+                Estou sempre com alguns projetos e ideias me motivando a estudar e praticar, adoro me sentir produtivo, 
+                então se tiver alguma coisa ai que queria discutir e criar, me chama, vou adorar poder participar 
+                da sua ideia e fazer acontecer 😉.
               </p>
             </div>
 
