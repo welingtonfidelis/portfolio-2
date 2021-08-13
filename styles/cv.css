@@ -11,6 +11,11 @@
   justify-content: space-between;
 }
 
+#cv-page .top-bar .size-alert-txt {
+  font-size: .8em;
+  margin: auto 0;
+}
+
 #cv-page .back-page {
   font-size: 1.2em;
   display: flex;

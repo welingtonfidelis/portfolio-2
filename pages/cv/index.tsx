@@ -11,19 +11,29 @@ import {
   FaGamepad,
   FaArrowCircleLeft,
 } from "react-icons/fa";
-import { GoCloudDownload } from "react-icons/go"
+import { GoCloudDownload } from "react-icons/go";
 
 import informations from "../../docs/informations.json";
+import { useEffect } from "react";
+import { useState } from "react";
 
 export default function Cv() {
+  const [screenWidth, setScreenWidth] = useState(0);
+
+  useEffect(() => {
+    const body = document.querySelector("body")!;
+    setScreenWidth(body.clientWidth);
+  }, []);
+
   const handleDownloadCv = async () => {
-    toJpeg(document.querySelector(".container")!, { quality: 1 })
-    .then(function (dataUrl) {
-      var link = document.createElement('a');
-      link.download = 'welington_fidelis_cv.jpeg';
-      link.href = dataUrl;
-      link.click();
-    });
+    toJpeg(document.querySelector(".container")!, { quality: 1 }).then(
+      function (dataUrl) {
+        var link = document.createElement("a");
+        link.download = "welington_fidelis_cv.jpeg";
+        link.href = dataUrl;
+        link.click();
+      }
+    );
   };
 
   return (
@@ -34,20 +44,23 @@ export default function Cv() {
           <span>Back to Portfolio</span>
         </div>
 
-        <div className="back-page" onClick={handleDownloadCv}>
-          <GoCloudDownload />
-          <span>Baixar</span>
-        </div>
+        {screenWidth > 900 ? (
+          <div className="back-page" onClick={handleDownloadCv}>
+            <GoCloudDownload />
+            <span>Baixar</span>
+          </div>
+        ) : (
+          <span className="size-alert-txt">
+            Use desktop mode to download CV
+          </span>
+        )}
       </div>
 
       <div className="container">
         <div className="left-side">
           <div className="profile-text">
             <div className="img-bx">
-              <img
-                src="/images/user_1.jpg"
-                alt="profile image"
-              />
+              <img src="/images/user_1.jpg" alt="profile image" />
             </div>
 
             <h2>
@@ -149,7 +162,7 @@ export default function Cv() {
             <div className="about skills">
               <h2 className="title-2">Professional Skills</h2>
               {informations.skills.map((item, index) => (
-                <div className="box">
+                <div className="box" key={index}>
                   <h4>{item.title}</h4>
                   <div className="percent">
                     <div style={{ width: `${item.level}%` }}></div>
