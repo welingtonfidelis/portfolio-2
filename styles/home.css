@@ -434,6 +434,17 @@
 
 }
 
+#home-page .easter-egg:hover {
+  cursor: pointer;
+  filter: brightness(.7);
+}
+
+#home-page .easter-egg {
+  color: var(--black);
+  float: right;
+  margin: 0 10px;
+}
+
 /* ====> HIDDE NAVIGATION <===== */
 
 #home-page .navigation.active {

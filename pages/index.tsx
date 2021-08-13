@@ -9,7 +9,6 @@ import {
   FaLinkedin,
   FaInstagram,
   FaTwitter,
-  FaFacebook,
   FaGithub,
   FaGlobeAmericas,
   FaImages,
@@ -31,6 +30,7 @@ import informations from "../docs/informations.json";
 export default function Home() {
   const [mailLoading, setMailLoading] = useState(false);
   const [darkTheme, setDarkTheme] = useState(false);
+  const [easterEgg, setEasterEgg] = useState({ count: 0, text: "-" });
   const [showCarouselImage, setShowCarouselImage] = useState<CarouseInterface>({
     visible: false,
     title: "",
@@ -115,6 +115,28 @@ export default function Home() {
     }
   };
 
+  const handleEasterEgg = () => {
+    const count = easterEgg.count + 1;
+
+    switch (count) {
+      case 1:
+        setEasterEgg({ count, text: "Re" });
+        break;
+
+      case 2:
+        setEasterEgg({ count, text: "Rela" });
+        break;
+
+      case 3:
+        setEasterEgg({ count, text: "Relax" });
+        break;
+
+      default:
+        Router.push("/easterEgg");
+        break;
+    }
+  };
+
   return (
     <div id="home-page">
       <div className="navigation">
@@ -187,17 +209,26 @@ export default function Home() {
 
           <ul className="social-media">
             <li>
-              <a href="https://www.linkedin.com/in/welington-fidelis-de-sousa-3944a6127" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/welington-fidelis-de-sousa-3944a6127"
+                target="_blank"
+              >
                 <FaLinkedin />
               </a>
             </li>
             <li>
-              <a href="https://www.instagram.com/fideliswelington/" target="_blank">
+              <a
+                href="https://www.instagram.com/fideliswelington/"
+                target="_blank"
+              >
                 <FaInstagram />
               </a>
             </li>
             <li>
-              <a href="https://www.youtube.com/channel/UCNlGJFOOjLwCtlvVbxV05qQ" target="_blank">
+              <a
+                href="https://www.youtube.com/channel/UCNlGJFOOjLwCtlvVbxV05qQ"
+                target="_blank"
+              >
                 <FaYoutube />
               </a>
             </li>
@@ -216,20 +247,7 @@ export default function Home() {
 
           <div className="content">
             <div className="text-bx">
-              <p>
-                Graduado em Ciência da Computação desde 2018, apaixonado por tecnologia, família e natureza, 
-                estou sempre em busca de melhorar, compartilhar o que já sei e me divertir criando qualquer coisa que me 
-                disperte interesse em ver funcionando.
-                <br/><br/>
-                Tentei ficar só no Back-End, mas honestamente, adoro uma tela com botões e inputs funcionando, 
-                então estou sempre mexendo com Front-End também 😝. Nada contra o modelo de desenvolvimento desktop,
-                mas acho que Web é tudo de bom, então é pra lá que direcionei meu foco no mundo dev, aprendendo HTML, CSS e 
-                JavaScript e partindo pro mais avançado depois, como Node.js e React.js.
-                <br/><br/>
-                Estou sempre com alguns projetos e ideias me motivando a estudar e praticar, adoro me sentir produtivo, 
-                então se tiver alguma coisa ai que queria discutir e criar, me chama, vou adorar poder participar 
-                da sua ideia e fazer acontecer 😉.
-              </p>
+              <p dangerouslySetInnerHTML={{__html: informations.abount_me}}/>
             </div>
 
             <div className="img-bx">
@@ -243,10 +261,9 @@ export default function Home() {
 
         <section id="services" className="services adjust">
           <div className="title">
-            <h2>Our Services</h2>
+            <h2>My Services</h2>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis
-              a inventore soluta.
+              These are some experience I won working with technology until now.
             </p>
           </div>
 
@@ -255,7 +272,7 @@ export default function Home() {
               <div className="service-bx" key={index}>
                 <img src={item.image_url} alt={item.position + "_image"} />
                 <h2>{item.position}</h2>
-                <p>{item.description}</p>
+                <p dangerouslySetInnerHTML={{ __html: item.description }} />
               </div>
             ))}
           </div>
@@ -265,8 +282,7 @@ export default function Home() {
           <div className="title">
             <h2>Recent Work</h2>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis
-              a inventore soluta.
+              Here are some projects that I worked on in my spare time, to have fun and study.
             </p>
           </div>
 
@@ -312,8 +328,7 @@ export default function Home() {
           <div className="title">
             <h2>Let's Say Hi</h2>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis
-              a inventore soluta.
+              Well, how about we talk?
             </p>
           </div>
 
@@ -357,6 +372,8 @@ export default function Home() {
             </div>
           </Form>
         </section>
+
+        <div className="easter-egg" onClick={handleEasterEgg}>{easterEgg.text}</div>
       </div>
 
       <ToastContainer />

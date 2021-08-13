@@ -9,6 +9,7 @@ import "../styles/modal.css";
 import "../styles/carouselImages.css";
 import "../styles/home.css";
 import "../styles/cv.css";
+import "../styles/easterEgg.css";
 
 import type { AppProps } from "next/app";
 

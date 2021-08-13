@@ -84,12 +84,12 @@ export default function Cv() {
           <div className="contact-info">
             <h3 className="title">Contact Info</h3>
             <ul>
-              <li>
+              {/* <li>
                 <span className="icon">
                   <FaPhone />
                 </span>
                 <span className="text">+55 35 9 9999-9999</span>
-              </li>
+              </li> */}
               <li>
                 <span className="icon">
                   <FaEnvelope />
@@ -114,7 +114,7 @@ export default function Cv() {
                 <span className="icon">
                   <FaMapMarker />
                 </span>
-                <span className="text">Brasil</span>
+                <span className="text">Minas Gerais, Brazil</span>
               </li>
             </ul>
           </div>
@@ -152,18 +152,7 @@ export default function Cv() {
         <div className="right-side">
           <div className="about">
             <h2 className="title-2">Profile</h2>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt ad
-              officiis error quam vero sed recusandae nam perferendis, fuga esse
-              laborum, vitae obcaecati dolorum architecto consequatur veniam
-              atque molestiae beatae.
-              <br />
-              <br />
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-              accusamus id repudiandae officiis illo, soluta nulla explicabo
-              aliquam commodi perspiciatis laborum vel sequi sit illum, quasi
-              pariatur? Doloribus, quos sapiente.
-            </p>
+            <p dangerouslySetInnerHTML={{__html: informations.abount_me}}/>
           </div>
 
           <div className="about">
@@ -176,7 +165,7 @@ export default function Cv() {
                 </div>
                 <div className="text">
                   <h4>{item.position}</h4>
-                  <p>{item.description}</p>
+                  <p dangerouslySetInnerHTML={{__html: item.description }}/>
                 </div>
               </div>
             ))}

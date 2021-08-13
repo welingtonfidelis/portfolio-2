@@ -1,4 +1,5 @@
 {
+  "abount_me": "Computer Scientist since 2018, passionate about technology, family and nature, I am always looking to improve, sharing what I know and have fun creating anything that rounds my interests. <br /><br /> I tried to just stay as a Back-End, but honestly, I love to see a screen with functional buttons and inputs, so I'm always working with the Front-End too 😝. I don't hate desktop development model or anything, but I think Web is the best, that's why I focused on the Web world, learning HTML, CSS and JavaScript and I intend on moving to something more complex later, like Node.js and React. <br /><br /> I'm always with some project and ideas motivating me to study and practise, I love feeling productive, so if there's something you want to discuss, do make it happen, talk to me, I'd love to contribute and help 😉.",
   "services": [
     {
       "image_url": "/images/icon-1.png",
@@ -6,7 +7,7 @@
       "position": "Back-End Developer",
       "start": "2021",
       "end": "Present",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nostrum ea nam officiis neque quasi molestiae, facere nesciunt, quibusdam sit quam provident! Expedita enim cupiditate, natus officiis repellat necessitatibus blanditiis?"
+      "description": "At Venturus, working in the Back-End team on projects for national and international clients, built in Node.js and React. <br/><br/> Technologies I had contact: <br/> Node.js - React - JavaScript - TypeScript - Automated tests - Docker - MySQL - PostgreSQL - Git - Srum"
     },
     {
       "image_url": "/images/icon-1.png",
@@ -14,7 +15,7 @@
       "position": "Back-End Developer",
       "start": "2020",
       "end": "2021",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nostrum ea nam officiis neque quasi molestiae, facere nesciunt, quibusdam sit quam provident! Expedita enim cupiditate, natus officiis repellat necessitatibus blanditiis?"
+      "description": "At Tech 4Humans, working in the Back-End team on a project focused on real-time messenger for human care, build in Node.js and React. <br/><br/> Technologies I had contact: <br/> Node.js - JavaScript - Docker- PostgreSQL - Redis - Serverless - Git - Srum"
     },
     {
       "image_url": "/images/icon-1.png",
@@ -22,7 +23,7 @@
       "position": "Full-Stack Developer",
       "start": "2018",
       "end": "2020",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nostrum ea nam officiis neque quasi molestiae, facere nesciunt, quibusdam sit quam provident! Expedita enim cupiditate, natus officiis repellat necessitatibus blanditiis?"
+      "description": "At Ranor Rastreamento, working in Back-End, Front-End and Mobile projects focused on vehicle tracking, fleet management and transport logistics, built in Node.js, PHP and IONIC. <br/> <br/> Technologies I had contact: <br/> PHP - IONIC - Node.js - HTML - CSS - JavaScript - Docker- PostgreSQL"
     },
     {
       "image_url": "/images/icon-2.png",
@@ -30,7 +31,7 @@
       "position": "Computer Technician",
       "start": "2009",
       "end": "2018",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nostrum ea nam officiis neque quasi molestiae, facere nesciunt, quibusdam sit quam provident! Expedita enim cupiditate, natus officiis repellat necessitatibus blanditiis?"
+      "description": "As computer technician, I worked on some companies and as autonomous, working with maintenance of desktop computers, laptops, network infrastructure and client attendance."
     }
   ],
 
