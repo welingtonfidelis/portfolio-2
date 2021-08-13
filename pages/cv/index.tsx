@@ -47,7 +47,7 @@ export default function Cv() {
         {screenWidth > 900 ? (
           <div className="back-page" onClick={handleDownloadCv}>
             <GoCloudDownload />
-            <span>Baixar</span>
+            <span>Download</span>
           </div>
         ) : (
           <span className="size-alert-txt">
