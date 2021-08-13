@@ -1,10 +1,39 @@
 import Router from "next/router";
+import { useEffect } from "react";
 import { useState } from "react";
 import { FaArrowCircleLeft, FaPlayCircle, FaStopCircle } from "react-icons/fa";
 import ReactPlayer from "react-player/lazy";
 
 export default function EasterEgg() {
   const [playVideo, setPlayVideo] = useState(true);
+  const [wallpaper, setWallpaper] = useState("/gifs/mt-fugi/day.gif");
+
+  useEffect(() => {
+    handleVerifyHours();
+
+    setInterval(() => { handleVerifyHours }, 60000);
+  }, []);
+
+  const handleVerifyHours = () => {
+    const hoursNow = new Date().getHours();
+
+    switch (true) {
+      case hoursNow >= 6 && hoursNow < 18:
+        setWallpaper("/gifs/mt-fugi/day.gif");
+        break;
+
+      case hoursNow >= 18 && hoursNow < 19:
+        setWallpaper("/gifs/mt-fugi/sunset.gif");
+        break;
+
+      case hoursNow >= 19:
+        setWallpaper("/gifs/mt-fugi/night.gif");
+        break;
+
+      default:
+        break;
+    }
+  };
 
   return (
     <div id="easter-egg-page">
@@ -16,7 +45,7 @@ export default function EasterEgg() {
       </div>
 
       <div className="container">
-        <img src="/gifs/mt-fugi/day.gif" alt="" />
+        <img src={wallpaper} alt="" />
 
         <span>
           Thank you for visiting my website, your presence here is{" "}

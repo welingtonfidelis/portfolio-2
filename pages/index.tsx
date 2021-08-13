@@ -282,7 +282,7 @@ export default function Home() {
           <div className="title">
             <h2>Recent Work</h2>
             <p>
-              Here are some projects that I worked on in my spare time, to have fun and study.
+              Here are some projects that I worked in my free time, to have fun and study.
             </p>
           </div>
 
