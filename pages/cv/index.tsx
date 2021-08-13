@@ -1,9 +1,6 @@
-import axios from "axios";
 import Router from "next/router";
-import { useEffect } from "react";
-import { useState } from "react";
+import { toJpeg } from "html-to-image";
 import {
-  FaPhone,
   FaEnvelope,
   FaGlobeAmericas,
   FaLinkedin,
@@ -14,45 +11,19 @@ import {
   FaGamepad,
   FaArrowCircleLeft,
 } from "react-icons/fa";
+import { GoCloudDownload } from "react-icons/go"
 
 import informations from "../../docs/informations.json";
 
 export default function Cv() {
-  const [cvHtml, setCvHtml] = useState("");
-
-  useEffect(() => {
-    getCvHtml();
-  }, []);
-
-  const getCvHtml = async () => {
-    try {
-      const { data } = await axios.get("../api/cv");
-
-      if (data.ok) {
-        setCvHtml(data.html);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const handleDownloadCv = async () => {
-    try {
-      const { data } = await axios.get("../api/cv", {
-        params: { download: true },
-        responseType: "blob",
-      });
-
-      const tmpUrl = window.URL.createObjectURL(new Blob([data]));
-      const link = document.createElement("a");
-      link.href = tmpUrl;
-      link.setAttribute("download", "test.pdf");
-      document.body.appendChild(link);
+    toJpeg(document.querySelector(".container")!, { quality: 1 })
+    .then(function (dataUrl) {
+      var link = document.createElement('a');
+      link.download = 'welington_fidelis_cv.jpeg';
+      link.href = dataUrl;
       link.click();
-      link.remove();
-    } catch (error) {
-      console.log(error);
-    }
+    });
   };
 
   return (
@@ -62,6 +33,11 @@ export default function Cv() {
           <FaArrowCircleLeft />
           <span>Back to Portfolio</span>
         </div>
+
+        <div className="back-page" onClick={handleDownloadCv}>
+          <GoCloudDownload />
+          <span>Baixar</span>
+        </div>
       </div>
 
       <div className="container">
@@ -69,7 +45,7 @@ export default function Cv() {
           <div className="profile-text">
             <div className="img-bx">
               <img
-                src="https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/user/user.jpg"
+                src="/images/user_1.jpg"
                 alt="profile image"
               />
             </div>
@@ -152,7 +128,7 @@ export default function Cv() {
         <div className="right-side">
           <div className="about">
             <h2 className="title-2">Profile</h2>
-            <p dangerouslySetInnerHTML={{__html: informations.abount_me}}/>
+            <p dangerouslySetInnerHTML={{ __html: informations.abount_me }} />
           </div>
 
           <div className="about">
@@ -165,23 +141,21 @@ export default function Cv() {
                 </div>
                 <div className="text">
                   <h4>{item.position}</h4>
-                  <p dangerouslySetInnerHTML={{__html: item.description }}/>
+                  <p dangerouslySetInnerHTML={{ __html: item.description }} />
                 </div>
               </div>
             ))}
 
             <div className="about skills">
               <h2 className="title-2">Professional Skills</h2>
-              {
-                informations.skills.map((item, index) => (
-                  <div className="box">
-                    <h4>{item.title}</h4>
-                    <div className="percent">
-                      <div style={{ width: `${item.level}%` }}></div>
-                    </div>
+              {informations.skills.map((item, index) => (
+                <div className="box">
+                  <h4>{item.title}</h4>
+                  <div className="percent">
+                    <div style={{ width: `${item.level}%` }}></div>
                   </div>
-                ))
-              }
+                </div>
+              ))}
             </div>
 
             <div className="about interest">

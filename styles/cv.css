@@ -8,6 +8,7 @@
 
 #cv-page .top-bar {
   display: flex;
+  justify-content: space-between;
 }
 
 #cv-page .back-page {
