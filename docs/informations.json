@@ -37,6 +37,18 @@
 
   "projects": [
     {
+      "title": "Portfólio (v2)",
+      "publication_url": "http://welingtonfidelis.dev.br/",
+      "github_url": "https://github.com/welingtonfidelis/portfolio-2",
+      "images": [
+        "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/repositories/portfolio_v2_1.png",
+        "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/repositories/portfolio_v2_2.png",
+        "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/repositories/portfolio_v2_3.png",
+        "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/repositories/portfolio_v2_4.png",
+        "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/repositories/portfolio_v2_5.png"
+      ]
+    },
+    {
       "title": "COQUI",
       "publication_url": "https://coqui-front.vercel.app/",
       "github_url": "https://github.com/welingtonfidelis/coqui_front",

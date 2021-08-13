@@ -1,4 +1,4 @@
-# COQUI
+# Portfólio v2
 Projeto do meu portfólio versão 2, baseado em alguns vídeos do canal [Online Tutorials], mas construído em [Next.js] e [TypeScript].
 
 ## Apresentação
