@@ -255,14 +255,14 @@ export default function Home() {
                 <FaInstagram />
               </a>
             </li>
-            <li>
+            {/* <li>
               <a
                 href="https://www.youtube.com/channel/UCNlGJFOOjLwCtlvVbxV05qQ"
                 target="_blank"
               >
                 <FaYoutube />
               </a>
-            </li>
+            </li> */}
             <li>
               <a href="https://twitter.com/welingtonfsousa" target="_blank">
                 <FaTwitter />

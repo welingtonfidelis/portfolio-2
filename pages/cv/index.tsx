@@ -26,6 +26,12 @@ export default function Cv() {
   const [screenWidth, setScreenWidth] = useState(0);
 
   const { t } = useTranslation();
+  const interestIcons = [
+    <FaHome />,
+    <FaBook />,
+    <FaLeaf />,
+    <FaGamepad />,
+  ]
 
   useEffect(() => {
     const body = document.querySelector("body")!;
@@ -201,7 +207,7 @@ export default function Cv() {
                   }) as InterestInterface[]
                 ).map((item, index) => (
                   <li key={index}>
-                    <FaHome /> {item.title}
+                    {interestIcons[index]} {item.title}
                   </li>
                 ))}
               </ul>
