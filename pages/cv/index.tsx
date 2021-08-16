@@ -12,8 +12,6 @@ import {
   FaArrowCircleLeft,
 } from "react-icons/fa";
 import { GoCloudDownload } from "react-icons/go";
-
-import informations from "../../docs/informations.json";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
