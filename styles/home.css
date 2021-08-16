@@ -168,8 +168,8 @@
 
 #home-page .banner .img-bx {
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   overflow: hidden;
   border-radius: 50%;
   margin-bottom: 20px;
@@ -498,11 +498,6 @@
   #home-page .main .topbar {
     width: 100%;
     left: 0;
-  }
-
-  #home-page .banner .img-bx {
-    width: 250px;
-    height: 250px;
   }
 
   #home-page .projects .content {
