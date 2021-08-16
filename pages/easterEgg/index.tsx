@@ -1,12 +1,15 @@
 import Router from "next/router";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FaArrowCircleLeft, FaPlayCircle, FaStopCircle } from "react-icons/fa";
 import ReactPlayer from "react-player/lazy";
 
 export default function EasterEgg() {
   const [playVideo, setPlayVideo] = useState(true);
   const [wallpaper, setWallpaper] = useState("/gifs/mt-fugi/day.gif");
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     handleVerifyHours();
@@ -40,18 +43,14 @@ export default function EasterEgg() {
       <div className="top-bar">
         <div className="back-page" onClick={() => Router.push("/")}>
           <FaArrowCircleLeft />
-          <span>Back to Portfolio</span>
+          <span>{t("easter_egg_back_page")}</span>
         </div>
       </div>
 
       <div className="container">
         <img src={wallpaper} alt="" />
 
-        <span>
-          Thank you for visiting my website, your presence here is{" "}
-          <strong>very </strong> important to me 😄. <br /> For now, relax.
-          Leave the heavier stuff out of here and feel the music...
-        </span>
+        <span dangerouslySetInnerHTML={{__html: t("easter_egg_text") }}/>
 
         <div className="music-control" onClick={() => setPlayVideo(!playVideo)}>
           {playVideo ? <FaStopCircle /> : <FaPlayCircle />}

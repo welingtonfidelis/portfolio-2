@@ -16,9 +16,18 @@ import { GoCloudDownload } from "react-icons/go";
 import informations from "../../docs/informations.json";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import {
+  EducationInterface,
+  InterestInterface,
+  ServicesInterface,
+  SkillInterface,
+} from "../../interfaces";
 
 export default function Cv() {
   const [screenWidth, setScreenWidth] = useState(0);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     const body = document.querySelector("body")!;
@@ -41,17 +50,17 @@ export default function Cv() {
       <div className="top-bar">
         <div className="back-page" onClick={() => Router.push("/")}>
           <FaArrowCircleLeft />
-          <span>Back to Portfolio</span>
+          <span>{t("cv_back_page")}</span>
         </div>
 
         {screenWidth > 900 ? (
           <div className="back-page" onClick={handleDownloadCv}>
             <GoCloudDownload />
-            <span>Download</span>
+            <span>{t("cv_download")}</span>
           </div>
         ) : (
           <span className="size-alert-txt">
-            Use desktop mode to download CV
+            {t("cv_invalid_size_donwload")}
           </span>
         )}
       </div>
@@ -66,12 +75,12 @@ export default function Cv() {
             <h2>
               Welington Fidelis de Sousa
               <br />
-              <span>Full Stack Web Developer</span>
+              <span>{t("about_me.office")}</span>
             </h2>
           </div>
 
           <div className="contact-info">
-            <h3 className="title">Contact Info</h3>
+            <h3 className="title">{t("contact.subtitle")}</h3>
             <ul>
               {/* <li>
                 <span className="icon">
@@ -109,18 +118,26 @@ export default function Cv() {
           </div>
 
           <div className="contact-info education">
-            <h3 className="title">Education</h3>
+            <h3 className="title">{t("education.title")}</h3>
             <ul>
-              <li>
-                <h5>2015 - 2018</h5>
-                <h4>Computer Science Degree</h4>
-                <h4>IFSULDEMINAS Campus Passos, Minas Gerais</h4>
-              </li>
+              {(
+                t("education.list", {
+                  returnObjects: true,
+                }) as EducationInterface[]
+              ).map((item, index) => (
+                <li key={index}>
+                  <h5>
+                    {item.start} - {item.end}
+                  </h5>
+                  <h4>{item.title}</h4>
+                  <h4>{item.institution}</h4>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div className="contact-info language">
-            <h3 className="title">Languages</h3>
+            <h3 className="title">{t("language.title")}</h3>
             <ul>
               <li>
                 <span className="text">Portuguese</span>
@@ -140,13 +157,17 @@ export default function Cv() {
 
         <div className="right-side">
           <div className="about">
-            <h2 className="title-2">Profile</h2>
-            <p dangerouslySetInnerHTML={{ __html: informations.abount_me }} />
+            <h2 className="title-2">{t("about_me.title")}</h2>
+            <p
+              dangerouslySetInnerHTML={{ __html: t("about_me.description") }}
+            />
           </div>
 
           <div className="about">
-            <h2 className="title-2">Experience</h2>
-            {informations.services.map((item, index) => (
+            <h2 className="title-2">{t("services.title")}</h2>
+            {(
+              t("services.list", { returnObjects: true }) as ServicesInterface[]
+            ).map((item, index) => (
               <div className="box" key={index}>
                 <div className="year-company">
                   <h5>{`${item.start} - ${item.end}`}</h5>
@@ -160,8 +181,10 @@ export default function Cv() {
             ))}
 
             <div className="about skills">
-              <h2 className="title-2">Professional Skills</h2>
-              {informations.skills.map((item, index) => (
+              <h2 className="title-2">{t("skills.title")}</h2>
+              {(
+                t("skills.list", { returnObjects: true }) as SkillInterface[]
+              ).map((item, index) => (
                 <div className="box" key={index}>
                   <h4>{item.title}</h4>
                   <div className="percent">
@@ -172,20 +195,17 @@ export default function Cv() {
             </div>
 
             <div className="about interest">
-              <h2 className="title-2">Interests</h2>
+              <h2 className="title-2">{t("interests.title")}</h2>
               <ul>
-                <li>
-                  <FaHome /> Family
-                </li>
-                <li>
-                  <FaLeaf /> Nature
-                </li>
-                <li>
-                  <FaBook /> Studies
-                </li>
-                <li>
-                  <FaGamepad /> Games
-                </li>
+                {(
+                  t("interests.list", {
+                    returnObjects: true,
+                  }) as InterestInterface[]
+                ).map((item, index) => (
+                  <li key={index}>
+                    <FaHome /> {item.title}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

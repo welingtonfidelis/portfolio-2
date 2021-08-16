@@ -1,8 +1,10 @@
 import { useState } from "react";
 import Router from "next/router";
-import { Form } from "antd";
+import { Form, Select } from "antd";
 import { AiOutlineLoading } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import axios from "axios";
 import {
   FaBars,
@@ -19,25 +21,31 @@ import {
 
 import { CarouselImage } from "../components/carouselImage";
 
-interface CarouseInterface {
-  visible: boolean;
-  title: string;
-  images: string[];
-}
-
-import informations from "../docs/informations.json";
+import { LanguageInterface } from "../store/language/model";
+import { changeLanguage } from "../store/language/actions";
+import {
+  CarouselImageInterface,
+  ServicesInterface,
+  ProjectsInterface,
+} from "../interfaces";
 
 export default function Home() {
   const [mailLoading, setMailLoading] = useState(false);
   const [darkTheme, setDarkTheme] = useState(false);
-  const [easterEgg, setEasterEgg] = useState({ count: 0, text: "-" });
-  const [showCarouselImage, setShowCarouselImage] = useState<CarouseInterface>({
-    visible: false,
-    title: "",
-    images: [],
-  });
+  const [easterEgg, setEasterEgg] = useState({ count: 0, text: "4" });
+  const [showCarouselImage, setShowCarouselImage] =
+    useState<CarouselImageInterface>({
+      visible: false,
+      title: "",
+      images: [],
+    });
 
   const [form] = Form.useForm();
+  const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const languageOnRedux = useSelector(
+    (state: { language: LanguageInterface }) => state.language
+  );
 
   const handleNavigation = () => {
     if (window.innerWidth <= 900) {
@@ -100,13 +108,13 @@ export default function Home() {
         });
 
         if (data.ok) {
-          toast.success("Email successfully sent!", { autoClose: 7000 });
+          toast.success(t("contact.success_send"), { autoClose: 7000 });
 
           form.resetFields();
         }
       } catch (error) {
         console.log(error);
-        toast.error("Error sending email. Please, try again.", {
+        toast.error(t("contact.error_send"), {
           autoClose: false,
         });
       }
@@ -137,45 +145,68 @@ export default function Home() {
     }
   };
 
+  const handleChangeLanguage = (language: "pt" | "en") => {
+    dispatch(changeLanguage({ language }));
+  };
+
   return (
     <div id="home-page">
       <div className="navigation">
         <ul>
           <li>
             <a href="#banner" onClick={handleNavigation}>
-              Home
+              {t("navigation_menu.home")}
             </a>
           </li>
           <li>
             <a href="#about" onClick={handleNavigation}>
-              About
+              {t("navigation_menu.about")}
             </a>
           </li>
           <li>
             <a href="#services" onClick={handleNavigation}>
-              Services
+              {t("navigation_menu.services")}
             </a>
           </li>
           <li>
             <a href="#projects" onClick={handleNavigation}>
-              Projects
+              {t("navigation_menu.projects")}
             </a>
           </li>
           <li>
             <a href="#contact" onClick={handleNavigation}>
-              Contact
+              {t("navigation_menu.contact")}
             </a>
           </li>
         </ul>
 
+        <div className="language-switch">
+          <Select
+            defaultValue={languageOnRedux.language}
+            onChange={handleChangeLanguage}
+            bordered={false}
+            suffixIcon={false}
+          >
+            <Select.Option value="pt">
+              <img src="/images/brazil.png" alt="" width={30} />
+              <span>Português</span>
+            </Select.Option>
+
+            <Select.Option value="en">
+              <img src="/images/eua.png" alt="" width={30} />
+              <span>English</span>
+            </Select.Option>
+          </Select>
+        </div>
+
         <div className="theme-switch" onClick={handleSwitchTheme}>
           {darkTheme ? (
             <>
-              <FaSun /> <span>Switch to Light Mode</span>
+              <FaSun /> <span>{t("theme_switch.light")}</span>
             </>
           ) : (
             <>
-              <FaMoon /> <span>Switch to Dark Mode</span>
+              <FaMoon /> <span>{t("theme_switch.dark")}</span>
             </>
           )}
         </div>
@@ -201,9 +232,9 @@ export default function Home() {
             </div>
 
             <h3>Welington Fidelis de Sousa</h3>
-            <p>I'm a Full Stack Web Developer.</p>
+            <p>{t("about_me.office")}</p>
             <a href="#" className="btn" onClick={() => Router.push("/cv")}>
-              View My CV
+              {t("about_me.view_cv")}
             </a>
           </div>
 
@@ -242,12 +273,14 @@ export default function Home() {
 
         <section id="about" className="about adjust">
           <div className="title">
-            <h2>About Me</h2>
+            <h2>{t("about_me.title")}</h2>
           </div>
 
           <div className="content">
             <div className="text-bx">
-              <p dangerouslySetInnerHTML={{__html: informations.abount_me}}/>
+              <p
+                dangerouslySetInnerHTML={{ __html: t("about_me.description") }}
+              />
             </div>
 
             <div className="img-bx">
@@ -261,14 +294,14 @@ export default function Home() {
 
         <section id="services" className="services adjust">
           <div className="title">
-            <h2>My Services</h2>
-            <p>
-              These are some experience I won working with technology until now.
-            </p>
+            <h2>{t("services.title")}</h2>
+            <p>{t("services.description")}</p>
           </div>
 
           <div className="content">
-            {informations.services.map((item, index) => (
+            {(
+              t("services.list", { returnObjects: true }) as ServicesInterface[]
+            ).map((item, index) => (
               <div className="service-bx" key={index}>
                 <img src={item.image_url} alt={item.position + "_image"} />
                 <h2>{item.position}</h2>
@@ -280,14 +313,14 @@ export default function Home() {
 
         <section id="projects" className="projects adjust">
           <div className="title">
-            <h2>Recent Work</h2>
-            <p>
-              Here are some projects that I worked in my free time, to have fun and study.
-            </p>
+            <h2>{t("projects.title")}</h2>
+            <p>{t("projects.description")}</p>
           </div>
 
           <div className="content">
-            {informations.projects.map((item, index) => (
+            {(
+              t("projects.list", { returnObjects: true }) as ProjectsInterface[]
+            ).map((item, index) => (
               <div className="work-bx" key={index}>
                 <div className="img-bx">
                   <img src={item.images[0]} alt={item.title + "_image"} />
@@ -326,10 +359,8 @@ export default function Home() {
 
         <section id="contact" className="contact adjust">
           <div className="title">
-            <h2>Let's Say Hi</h2>
-            <p>
-              Well, how about we talk?
-            </p>
+            <h2>{t("contact.title")}</h2>
+            <p>{t("contact.description")}</p>
           </div>
 
           <Form form={form} onFinish={handleSendEmail} className="contact-form">
@@ -337,9 +368,15 @@ export default function Home() {
               <div className="row">
                 <Form.Item
                   name="name"
-                  rules={[{ required: true, message: "What's your name?" }]}
+                  rules={[
+                    { required: true, message: t("contact.input_error_name") },
+                  ]}
                 >
-                  <input type="text" name="" placeholder="Your Name" />
+                  <input
+                    type="text"
+                    name=""
+                    placeholder={t("contact.input_name")}
+                  />
                 </Form.Item>
                 <Form.Item
                   name="email"
@@ -347,33 +384,43 @@ export default function Home() {
                     {
                       required: true,
                       type: "email",
-                      message: "What's your email?",
+                      message: t("contact.input_error_email"),
                     },
                   ]}
                 >
-                  <input type="text" name="" placeholder="Email Address" />
+                  <input type="text" name="" placeholder={t("contact.email")} />
                 </Form.Item>
               </div>
               <div className="row-2">
                 <Form.Item
                   name="message"
-                  rules={[{ required: true, message: "What's your message?" }]}
+                  rules={[
+                    {
+                      required: true,
+                      message: t("contact.input_error_message"),
+                    },
+                  ]}
                 >
-                  <textarea name="" placeholder="Message"></textarea>
+                  <textarea
+                    name=""
+                    placeholder={t("contact.input_message")}
+                  ></textarea>
                 </Form.Item>
               </div>
               <div className="btn row-2" onClick={() => form.submit()}>
                 {mailLoading ? (
                   <AiOutlineLoading className="rotate-center" />
                 ) : (
-                  <span>Send</span>
+                  <span>{t("contact.button_send")}</span>
                 )}
               </div>
             </div>
           </Form>
         </section>
 
-        <div className="easter-egg" onClick={handleEasterEgg}>{easterEgg.text}</div>
+        <div className="easter-egg" onClick={handleEasterEgg}>
+          {easterEgg.text}
+        </div>
       </div>
 
       <ToastContainer />
