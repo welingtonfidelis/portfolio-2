@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Router from "next/router";
+import Image from "next/image";
 import { Form, Select } from "antd";
 import { AiOutlineLoading } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
@@ -16,7 +17,6 @@ import {
   FaImages,
   FaMoon,
   FaSun,
-  FaYoutube,
 } from "react-icons/fa";
 
 import { CarouselImage } from "../components/carouselImage";
@@ -188,12 +188,12 @@ export default function Home() {
             suffixIcon={false}
           >
             <Select.Option value="pt">
-              <img src="/images/brazil.png" alt="" width={30} />
+              <img loading="lazy" src="/images/brazil.png" alt="Brazil logo" width={30} />
               <span>Português</span>
             </Select.Option>
 
             <Select.Option value="en">
-              <img src="/images/eua.png" alt="" width={30} />
+              <img loading="lazy" src="/images/eua.png" alt="EUA logo" width={30} />
               <span>English</span>
             </Select.Option>
           </Select>
@@ -225,8 +225,8 @@ export default function Home() {
         <section id="banner" className="banner">
           <div className="content">
             <div className="img-bx">
-              <img
-                src="https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/user/user.jpg"
+              <img loading="lazy"
+                src="images/user_1.jpg"
                 alt="User profile-1"
               />
             </div>
@@ -285,7 +285,7 @@ export default function Home() {
 
             <div className="img-bx">
               <img
-                src="https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/user/user-2.jpg"
+                src="images/user_2.jpg"
                 alt="User profile-2"
               />
             </div>
@@ -303,7 +303,7 @@ export default function Home() {
               t("services.list", { returnObjects: true }) as ServicesInterface[]
             ).map((item, index) => (
               <div className="service-bx" key={index}>
-                <img src={item.image_url} alt={item.position + "_image"} />
+                <img loading="lazy" src={item.image_url} alt={item.position + "_image"} />
                 <h2>{item.position}</h2>
                 <p dangerouslySetInnerHTML={{ __html: item.description }} />
               </div>
@@ -323,7 +323,7 @@ export default function Home() {
             ).map((item, index) => (
               <div className="work-bx" key={index}>
                 <div className="img-bx">
-                  <img src={item.images[0]} alt={item.title + "_image"} />
+                  <img loading="lazy" src={item.images[0]} alt={item.title + "_image"} />
                 </div>
 
                 <div className="text-bx">

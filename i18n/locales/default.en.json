@@ -142,7 +142,7 @@
         },
         {
           "title": "Portfólio (v1)",
-          "publication_url": "http://welingtonfidelis.dev.br/",
+          "publication_url": "https://portfolio-omega-lake.vercel.app/",
           "github_url": "https://github.com/welingtonfidelis/portfolio",
           "images": [
             "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/portfolio/49efd49f-772c-40aa-902f-e45d41d16806.png",

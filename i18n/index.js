@@ -21,19 +21,12 @@ i18n
       },
     },
 
-    lng: "pt", // if you're using a language detector, do not define the lng option
+    lng: "en", // if you're using a language detector, do not define the lng option
     fallbackLng: "en",
 
     ns: ["common"],
 
     defaultNS: "common",
-
-    react: {
-      wait: false,
-      bindI18n: "languageChanged loaded",
-      bindStore: "added removed",
-      nsMode: "default",
-    },
   });
 
 export default i18n;
