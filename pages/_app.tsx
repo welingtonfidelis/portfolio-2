@@ -6,8 +6,8 @@ import { storeWrapper } from "../store";
 import "antd/dist/antd.css";
 import "react-toastify/dist/ReactToastify.css";
 
-import "../styles/animation.css";
 import "../styles/globals.css";
+import "../styles/animation.css";
 import "../styles/modal.css";
 import "../styles/carouselImages.css";
 import "../styles/home.css";

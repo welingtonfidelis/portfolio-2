@@ -32,8 +32,3 @@
 #carousel-image .slick-list {
   max-height: 80vh;
 }
-
-#carousel-image .slick-current {
-  max-height: 75vh;
-  overflow: auto;
-}

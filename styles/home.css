@@ -456,6 +456,8 @@
 #home-page .easter-egg:hover {
   cursor: pointer;
   filter: brightness(.7);
+	-webkit-animation: jello-vertical 1s both;
+	animation: jello-vertical 1s both;
 }
 
 #home-page .easter-egg {

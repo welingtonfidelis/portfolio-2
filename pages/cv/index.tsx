@@ -26,12 +26,7 @@ export default function Cv() {
   const [screenWidth, setScreenWidth] = useState(0);
 
   const { t } = useTranslation();
-  const interestIcons = [
-    <FaHome />,
-    <FaBook />,
-    <FaLeaf />,
-    <FaGamepad />,
-  ]
+  const interestIcons = [<FaHome />, <FaBook />, <FaLeaf />, <FaGamepad />];
 
   useEffect(() => {
     const body = document.querySelector("body")!;
@@ -93,29 +88,21 @@ export default function Cv() {
                 <span className="text">+55 35 9 9999-9999</span>
               </li> */}
               <li>
-                <span className="icon">
-                  <FaEnvelope />
-                </span>
+                <FaEnvelope />
                 <span className="text">welingtonfidelis@gmail.com</span>
               </li>
               <li>
-                <span className="icon">
-                  <FaGlobeAmericas />
-                </span>
+                <FaGlobeAmericas />
                 <span className="text">www.welingtonfidelis.dev.br</span>
               </li>
               <li>
-                <span className="icon">
-                  <FaLinkedin />
-                </span>
+                <FaLinkedin />
                 <span className="text">
                   linkedin.com/in/welington-fidelis-de-sousa-3944a6127
                 </span>
               </li>
               <li>
-                <span className="icon">
-                  <FaMapMarker />
-                </span>
+                <FaMapMarker />
                 <span className="text">Minas Gerais, Brazil</span>
               </li>
             </ul>

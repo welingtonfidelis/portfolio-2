@@ -388,7 +388,7 @@ export default function Home() {
                     },
                   ]}
                 >
-                  <input type="text" name="" placeholder={t("contact.email")} />
+                  <input type="text" name="" placeholder={t("contact.input_email")} />
                 </Form.Item>
               </div>
               <div className="row-2">

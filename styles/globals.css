@@ -19,7 +19,7 @@ html, body, #root, #__next {
   --black2: #333;
   --white: #fff;
   --white2: #fff;
-  --button: #2196f3;
+  --button: #2098D1;
 }
 
 .dark {
@@ -27,7 +27,7 @@ html, body, #root, #__next {
   --black2: #444;
   --white: #333;
   --white2: #444;
-  --button: #2196f3;
+  --button: #2098D1;
 }
 
 ::-webkit-scrollbar {
@@ -65,5 +65,5 @@ html, body, #root, #__next {
 .btn:hover {
   cursor: pointer;
   background: var(--button);
-  color: #000;
+  color: #fff;
 }

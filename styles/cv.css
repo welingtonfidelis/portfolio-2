@@ -118,11 +118,11 @@
   cursor: pointer;
 }
 
-#cv-page .contact-info ul li .icon {
-  display: inline-block;
+#cv-page .contact-info ul li svg {
   width: 30px;
   font-size: 18px;
   color: #03a9f4;
+  margin-right: 5px;
 }
 
 #cv-page .contact-info ul li span {
