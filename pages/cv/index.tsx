@@ -34,7 +34,7 @@ export default function Cv() {
   }, []);
 
   const handleDownloadCv = async () => {
-    toJpeg(document.querySelector(".container")!, { quality: 1 }).then(
+    toJpeg(document.querySelector(".container")! as HTMLElement, { quality: 1 }).then(
       function (dataUrl) {
         var link = document.createElement("a");
         link.download = "welington_fidelis_cv.jpeg";
