@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Router from "next/router";
 import Image from "next/image";
 import { Form, Select } from "antd";
@@ -46,6 +46,22 @@ export default function Home() {
   const languageOnRedux = useSelector(
     (state: { language: LanguageInterface }) => state.language
   );
+
+  useEffect(() => {
+    startChat();
+  });
+
+  const startChat = () => {
+    (window as any).replainSettings = { id: process.env.REPLAIN_API_ID };
+    (function (u) {
+      var s = document.createElement("script");
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = u;
+      var x = document.getElementsByTagName("script")[0];
+      x?.parentNode?.insertBefore(s, x);
+    })("https://widget.replain.cc/dist/client.js");
+  };
 
   const handleNavigation = () => {
     if (window.innerWidth <= 900) {
@@ -188,12 +204,22 @@ export default function Home() {
             suffixIcon={false}
           >
             <Select.Option value="pt">
-              <img loading="lazy" src="/images/brazil.png" alt="Brazil logo" width={30} />
+              <img
+                loading="lazy"
+                src="/images/brazil.png"
+                alt="Brazil logo"
+                width={30}
+              />
               <span>Português</span>
             </Select.Option>
 
             <Select.Option value="en">
-              <img loading="lazy" src="/images/eua.png" alt="EUA logo" width={30} />
+              <img
+                loading="lazy"
+                src="/images/eua.png"
+                alt="EUA logo"
+                width={30}
+              />
               <span>English</span>
             </Select.Option>
           </Select>
@@ -225,7 +251,8 @@ export default function Home() {
         <section id="banner" className="banner">
           <div className="content">
             <div className="img-bx">
-              <img loading="lazy"
+              <img
+                loading="lazy"
                 src="images/user_1.jpg"
                 alt="User profile-1"
               />
@@ -284,10 +311,7 @@ export default function Home() {
             </div>
 
             <div className="img-bx">
-              <img
-                src="images/user_2.jpg"
-                alt="User profile-2"
-              />
+              <img src="images/user_2.jpg" alt="User profile-2" />
             </div>
           </div>
         </section>
@@ -303,7 +327,11 @@ export default function Home() {
               t("services.list", { returnObjects: true }) as ServicesInterface[]
             ).map((item, index) => (
               <div className="service-bx" key={index}>
-                <img loading="lazy" src={item.image_url} alt={item.position + "_image"} />
+                <img
+                  loading="lazy"
+                  src={item.image_url}
+                  alt={item.position + "_image"}
+                />
                 <h2>{item.position}</h2>
                 <p dangerouslySetInnerHTML={{ __html: item.description }} />
               </div>
@@ -323,7 +351,11 @@ export default function Home() {
             ).map((item, index) => (
               <div className="work-bx" key={index}>
                 <div className="img-bx">
-                  <img loading="lazy" src={item.images[0]} alt={item.title + "_image"} />
+                  <img
+                    loading="lazy"
+                    src={item.images[0]}
+                    alt={item.title + "_image"}
+                  />
                 </div>
 
                 <div className="text-bx">
@@ -388,7 +420,11 @@ export default function Home() {
                     },
                   ]}
                 >
-                  <input type="text" name="" placeholder={t("contact.input_email")} />
+                  <input
+                    type="text"
+                    name=""
+                    placeholder={t("contact.input_email")}
+                  />
                 </Form.Item>
               </div>
               <div className="row-2">
