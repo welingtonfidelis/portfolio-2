@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import Router from "next/router";
-import Image from "next/image";
 import { Form, Select } from "antd";
 import { AiOutlineLoading } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+import { getCookie, setCookies } from "cookies-next";
 import axios from "axios";
 import {
   FaBars,
@@ -46,6 +46,14 @@ export default function Home() {
   const languageOnRedux = useSelector(
     (state: { language: LanguageInterface }) => state.language
   );
+
+  useEffect(() => {
+    const darkTheme = (getCookie("dark_theme") as boolean) || false;
+
+    if (darkTheme) {
+      handleSwitchTheme();
+    }
+  }, []);
 
   useEffect(() => {
     startChat();
@@ -103,6 +111,8 @@ export default function Home() {
 
     body.classList.toggle("dark");
     setDarkTheme(!darkTheme);
+
+    setCookies("dark_theme", !darkTheme);
   };
 
   const handleSendEmail = async (values: any) => {
@@ -163,6 +173,8 @@ export default function Home() {
 
   const handleChangeLanguage = (language: "pt" | "en") => {
     dispatch(changeLanguage({ language }));
+
+    setCookies("language", language);
   };
 
   return (
@@ -205,20 +217,20 @@ export default function Home() {
           >
             <Select.Option value="pt">
               <img
-                loading="lazy"
-                src="/images/brazil.png"
-                alt="Brazil logo"
+                src={"/images/brazil.png"}
+                alt="Bandeira do Brasil"
                 width={30}
+                height={30}
               />
               <span>Português</span>
             </Select.Option>
 
             <Select.Option value="en">
               <img
-                loading="lazy"
-                src="/images/eua.png"
-                alt="EUA logo"
+                src={"/images/eua.png"}
+                alt="EUA Flag"
                 width={30}
+                height={30}
               />
               <span>English</span>
             </Select.Option>

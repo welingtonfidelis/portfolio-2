@@ -60,6 +60,17 @@
       "description": "Aqui estão alguns projetos que trabalhei no meu tempo livre, para me divertir e estudar.",
       "list": [
         {
+          "title": "O Gastão",
+          "publication_url": "https://welingtonfidelis.github.io/o_gastao/#/",
+          "github_url": "https://github.com/welingtonfidelis/o_gastao",
+          "images": [
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/repositories/o_gastao_1.png",
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/repositories/o_gastao_2.png",
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/repositories/o_gastao_3.png",
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/repositories/o_gastao_4.png"
+          ]
+        },
+        {
           "title": "Todo list (v2)",
           "publication_url": "https://welingtonfidelis.github.io/todolist-v2",
           "github_url": "https://github.com/welingtonfidelis/todolist-v2",
