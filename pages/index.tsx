@@ -5,7 +5,7 @@ import { AiOutlineLoading } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { getCookie, setCookies } from "cookies-next";
+import { setCookies } from "cookies-next";
 import axios from "axios";
 import {
   FaBars,
@@ -19,20 +19,24 @@ import {
   FaSun,
 } from "react-icons/fa";
 
+import i18n from "../i18n";
 import { CarouselImage } from "../components/carouselImage";
 
 import { LanguageInterface } from "../store/language/model";
+import { ThemeInterface } from "../store/theme/model";
 import { changeLanguage } from "../store/language/actions";
 import {
   CarouselImageInterface,
   ServicesInterface,
   ProjectsInterface,
 } from "../interfaces";
+import { changeTheme } from "../store/theme/actions";
 
 export default function Home() {
   const [mailLoading, setMailLoading] = useState(false);
   const [darkTheme, setDarkTheme] = useState(false);
   const [easterEgg, setEasterEgg] = useState({ count: 0, text: "4" });
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
   const [showCarouselImage, setShowCarouselImage] =
     useState<CarouselImageInterface>({
       visible: false,
@@ -43,21 +47,37 @@ export default function Home() {
   const [form] = Form.useForm();
   const { t } = useTranslation();
   const dispatch = useDispatch();
+
   const languageOnRedux = useSelector(
     (state: { language: LanguageInterface }) => state.language
   );
+  const themeOnRedux = useSelector(
+    (state: { theme: ThemeInterface }) => state.theme
+  );
 
   useEffect(() => {
-    const darkTheme = (getCookie("dark_theme") as boolean) || false;
+    const { isDarkTheme } = themeOnRedux;
+    const body = document.querySelector("body")!;
 
-    if (darkTheme) {
-      handleSwitchTheme();
+    if (isDarkTheme && !body.classList.contains("dark")) {
+      body.classList.toggle("dark");
+      setDarkTheme(isDarkTheme);
     }
-  }, []);
+  }, [themeOnRedux]);
+
+  useEffect(() => {
+    const { language } = languageOnRedux;
+    console.log(" lang", language);
+
+    if (language) {
+      setSelectedLanguage(language);
+      i18n.changeLanguage(language);
+    }
+  }, [languageOnRedux]);
 
   useEffect(() => {
     startChat();
-  });
+  }, []);
 
   const startChat = () => {
     (window as any).replainSettings = { id: process.env.REPLAIN_API_ID };
@@ -106,13 +126,9 @@ export default function Home() {
     });
   };
 
-  const handleSwitchTheme = () => {
-    const body = document.querySelector("body")!;
-
-    body.classList.toggle("dark");
-    setDarkTheme(!darkTheme);
-
-    setCookies("dark_theme", !darkTheme);
+  const handleSwitchTheme = (isDark: boolean) => {
+    dispatch(changeTheme({ isDarkTheme: isDark }));
+    setCookies("dark_theme", isDark);
   };
 
   const handleSendEmail = async (values: any) => {
@@ -171,9 +187,8 @@ export default function Home() {
     }
   };
 
-  const handleChangeLanguage = (language: "pt" | "en") => {
+  const handleChangeLanguage = (language: string) => {
     dispatch(changeLanguage({ language }));
-
     setCookies("language", language);
   };
 
@@ -210,7 +225,7 @@ export default function Home() {
 
         <div className="language-switch">
           <Select
-            defaultValue={languageOnRedux.language}
+            value={selectedLanguage}
             onChange={handleChangeLanguage}
             bordered={false}
             suffixIcon={false}
@@ -237,7 +252,10 @@ export default function Home() {
           </Select>
         </div>
 
-        <div className="theme-switch" onClick={handleSwitchTheme}>
+        <div
+          className="theme-switch"
+          onClick={() => handleSwitchTheme(!darkTheme)}
+        >
           {darkTheme ? (
             <>
               <FaSun /> <span>{t("theme_switch.light")}</span>
@@ -294,17 +312,14 @@ export default function Home() {
                 <FaInstagram />
               </a>
             </li>
-            {/* <li>
-              <a
-                href="https://www.youtube.com/channel/UCNlGJFOOjLwCtlvVbxV05qQ"
-                target="_blank"
-              >
-                <FaYoutube />
-              </a>
-            </li> */}
             <li>
               <a href="https://twitter.com/welingtonfsousa" target="_blank">
                 <FaTwitter />
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/welingtonfidelis" target="_blank">
+                <FaGithub />
               </a>
             </li>
           </ul>

@@ -1,3 +1,3 @@
 export interface LanguageInterface {
-  language: "pt" | "en";
+  language: string;
 }

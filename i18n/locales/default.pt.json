@@ -24,10 +24,10 @@
         {
           "image_url": "/images/icon-1.png",
           "company_name": "Venturus",
-          "position": "Desenvolvedor Back-End",
+          "position": "Desenvolvedor Full-Stack",
           "start": "2021",
           "end": "Atual",
-          "description": "No Venturus, trabalhando no time de Back-End em projetos para clientes nacionais e internacionais, construídos em Node.js e React. <br/><br/> Tecnologias que tive contato: <br/> Node.js - React - JavaScript - TypeScript - Testes automatizados - Docker - MySQL - PostgreSQL - Git - Srum"
+          "description": "No Venturus, trabalhando nos times de Back-End e Front-End em projetos para clientes nacionais e internacionais, construídos em Node.js e React. <br/><br/> Tecnologias que tive contato: <br/> Node.js - React - JavaScript - TypeScript - Testes automatizados - Docker - MySQL - PostgreSQL - Git - Srum"
         },
         {
           "image_url": "/images/icon-1.png",

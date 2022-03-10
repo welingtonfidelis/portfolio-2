@@ -10,6 +10,7 @@ import {
   FaLeaf,
   FaGamepad,
   FaArrowCircleLeft,
+  FaGithub,
 } from "react-icons/fa";
 import { GoCloudDownload } from "react-icons/go";
 import { useEffect } from "react";
@@ -78,15 +79,9 @@ export default function Cv() {
             </h2>
           </div>
 
-          <div className="contact-info">
+          <div className="lateral-list contact">
             <h3 className="title">{t("contact.subtitle")}</h3>
             <ul>
-              {/* <li>
-                <span className="icon">
-                  <FaPhone />
-                </span>
-                <span className="text">+55 35 9 9999-9999</span>
-              </li> */}
               <li>
                 <FaEnvelope />
                 <span className="text">welingtonfidelis@gmail.com</span>
@@ -102,13 +97,19 @@ export default function Cv() {
                 </span>
               </li>
               <li>
+                <FaGithub />
+                <span className="text">
+                  github.com/welingtonfidelis
+                </span>
+              </li>
+              <li>
                 <FaMapMarker />
                 <span className="text">Minas Gerais, Brazil</span>
               </li>
             </ul>
           </div>
 
-          <div className="contact-info education">
+          <div className="lateral-list education">
             <h3 className="title">{t("education.title")}</h3>
             <ul>
               {(
@@ -127,7 +128,7 @@ export default function Cv() {
             </ul>
           </div>
 
-          <div className="contact-info language">
+          <div className="lateral-list language">
             <h3 className="title">{t("language.title")}</h3>
             <ul>
               <li>
