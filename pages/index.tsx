@@ -19,7 +19,6 @@ import {
   FaSun,
 } from "react-icons/fa";
 
-import i18n from "../i18n";
 import { CarouselImage } from "../components/carouselImage";
 
 import { LanguageInterface } from "../store/language/model";
@@ -34,9 +33,7 @@ import { changeTheme } from "../store/theme/actions";
 
 export default function Home() {
   const [mailLoading, setMailLoading] = useState(false);
-  const [darkTheme, setDarkTheme] = useState(false);
   const [easterEgg, setEasterEgg] = useState({ count: 0, text: "4" });
-  const [selectedLanguage, setSelectedLanguage] = useState("en");
   const [showCarouselImage, setShowCarouselImage] =
     useState<CarouselImageInterface>({
       visible: false,
@@ -61,19 +58,8 @@ export default function Home() {
 
     if (isDarkTheme && !body.classList.contains("dark")) {
       body.classList.toggle("dark");
-      setDarkTheme(isDarkTheme);
     }
   }, [themeOnRedux]);
-
-  useEffect(() => {
-    const { language } = languageOnRedux;
-    console.log(" lang", language);
-
-    if (language) {
-      setSelectedLanguage(language);
-      i18n.changeLanguage(language);
-    }
-  }, [languageOnRedux]);
 
   useEffect(() => {
     startChat();
@@ -155,7 +141,6 @@ export default function Home() {
           form.resetFields();
         }
       } catch (error) {
-        console.log(error);
         toast.error(t("contact.error_send"), {
           autoClose: false,
         });
@@ -225,7 +210,7 @@ export default function Home() {
 
         <div className="language-switch">
           <Select
-            value={selectedLanguage}
+            value={languageOnRedux.language}
             onChange={handleChangeLanguage}
             bordered={false}
             suffixIcon={false}
@@ -254,9 +239,9 @@ export default function Home() {
 
         <div
           className="theme-switch"
-          onClick={() => handleSwitchTheme(!darkTheme)}
+          onClick={() => handleSwitchTheme(!themeOnRedux.isDarkTheme)}
         >
-          {darkTheme ? (
+          {themeOnRedux.isDarkTheme ? (
             <>
               <FaSun /> <span>{t("theme_switch.light")}</span>
             </>

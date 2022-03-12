@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { I18nextProvider } from "react-i18next";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getCookie } from "cookies-next";
 import type { AppProps } from "next/app";
 import { useEffect } from "react";
@@ -20,16 +20,22 @@ import "../styles/carouselImages.css";
 import "../styles/home.css";
 import "../styles/cv.css";
 import "../styles/easterEgg.css";
+import { LanguageInterface } from "../store/language/model";
 
 
 function MyApp({ Component, pageProps }: AppProps) {
   const dispatch = useDispatch();
+  const languageOnRedux = useSelector(
+    (state: { language: LanguageInterface }) => state.language
+  );
+
+  useEffect(() => {
+    i18n.changeLanguage(languageOnRedux.language);
+  }, [languageOnRedux.language]);
 
   useEffect(() => {
     const isDarkTheme = getCookie("dark_theme") as boolean;
     const language = getCookie("language") as string;
-
-    console.log('start', typeof isDarkTheme, isDarkTheme, '.', language);
     
     if(isDarkTheme !== undefined) {
       dispatch(changeTheme({ isDarkTheme }));
@@ -37,7 +43,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
     if(language !== undefined) {
       dispatch(changeLanguage({ language }));
-      i18n.changeLanguage(language);
     }
   }, []);
 
