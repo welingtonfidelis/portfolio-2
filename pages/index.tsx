@@ -61,9 +61,10 @@ export default function Home() {
     }
   }, [themeOnRedux]);
 
-  useEffect(() => {
-    startChat();
-  }, []);
+  // Disabled chat
+  // useEffect(() => {
+  //   startChat();
+  // }, []);
 
   const startChat = () => {
     (window as any).replainSettings = { id: process.env.REPLAIN_API_ID };
