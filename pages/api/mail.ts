@@ -26,7 +26,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   } catch (error) {
     res.status(500).json({
       ok: false,
-      message: error.message || "Internal server error",
+      message: error instanceof Error ? error.message : "Internal server error",
     });
   }
 };

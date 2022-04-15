@@ -6,6 +6,7 @@ import { FaArrowCircleLeft, FaPlayCircle, FaStopCircle } from "react-icons/fa";
 import ReactPlayer from "react-player/lazy";
 
 export default function EasterEgg() {
+  const ReactPlayerComponent = ReactPlayer as any;
   const [playVideo, setPlayVideo] = useState(true);
   const [wallpaper, setWallpaper] = useState("/gifs/mt-fugi/day.gif");
 
@@ -56,7 +57,7 @@ export default function EasterEgg() {
           {playVideo ? <FaStopCircle /> : <FaPlayCircle />}
         </div>
 
-        <ReactPlayer
+        <ReactPlayerComponent
           loop={true}
           controls={false}
           width={0}
