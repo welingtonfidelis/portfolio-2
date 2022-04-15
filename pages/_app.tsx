@@ -24,6 +24,7 @@ import { LanguageInterface } from "../store/language/model";
 
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const AppComponent = Component as any;
   const dispatch = useDispatch();
   const languageOnRedux = useSelector(
     (state: { language: LanguageInterface }) => state.language
@@ -54,7 +55,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
 
       <I18nextProvider i18n={i18n}>
-        <Component {...pageProps} />
+        <AppComponent {...pageProps} />
       </I18nextProvider>
     </>
   );
