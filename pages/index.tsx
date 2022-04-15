@@ -66,17 +66,17 @@ export default function Home() {
   //   startChat();
   // }, []);
 
-  const startChat = () => {
-    (window as any).replainSettings = { id: process.env.REPLAIN_API_ID };
-    (function (u) {
-      const s = document.createElement("script");
-      s.type = "text/javascript";
-      s.async = true;
-      s.src = u;
-      const x = document.getElementsByTagName("script")[0];
-      x?.parentNode?.insertBefore(s, x);
-    })("https://widget.replain.cc/dist/client.js");
-  };
+  // const startChat = () => {
+  //   (window as any).replainSettings = { id: process.env.REPLAIN_API_ID };
+  //   (function (u) {
+  //     const s = document.createElement("script");
+  //     s.type = "text/javascript";
+  //     s.async = true;
+  //     s.src = u;
+  //     const x = document.getElementsByTagName("script")[0];
+  //     x?.parentNode?.insertBefore(s, x);
+  //   })("https://widget.replain.cc/dist/client.js");
+  // };
 
   const handleNavigation = () => {
     if (window.innerWidth <= 900) {
