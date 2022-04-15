@@ -57,8 +57,10 @@ export default function Home() {
     const body = document.querySelector("body")!;
 
     if (isDarkTheme && !body.classList.contains("dark")) {
-      body.classList.toggle("dark");
+      body.classList.add("dark");
     }
+    else body.classList.remove("dark");
+    
   }, [themeOnRedux]);
 
   // Disabled chat
