@@ -58,7 +58,19 @@
     "projects": {
       "title": "Recent Work",
       "description": "Here are some projects that I worked in my free time, to have fun and study.",
+      "tooltipe_images": "Images", 
+      "tooltipe_github": "Github", 
+      "tooltipe_publication": "Publication", 
       "list": [
+        {
+          "title": "Run Mario Game",
+          "publication_url": "https://welingtonfidelis.github.io/run_mario",
+          "github_url": "https://github.com/welingtonfidelis/run_mario",
+          "images": [
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/repositories/run_mario_1.png",
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/repositories/run_mario_2.png"
+          ]
+        },
         {
           "title": "O Gastão",
           "publication_url": "https://welingtonfidelis.github.io/o_gastao/#/",

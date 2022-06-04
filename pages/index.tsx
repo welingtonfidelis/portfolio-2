@@ -58,9 +58,7 @@ export default function Home() {
 
     if (isDarkTheme && !body.classList.contains("dark")) {
       body.classList.add("dark");
-    }
-    else body.classList.remove("dark");
-    
+    } else body.classList.remove("dark");
   }, [themeOnRedux]);
 
   // Disabled chat
@@ -377,7 +375,7 @@ export default function Home() {
                   <h3>{item.title}</h3>
                   <div className="projects-action">
                     <a
-                      title="Images"
+                      title={t("projects.tooltipe_images")}
                       href="#"
                       onClick={() =>
                         handleShowCarouselImage(item.title, item.images)
@@ -385,12 +383,16 @@ export default function Home() {
                     >
                       <FaImages />
                     </a>
-                    <a title="Github" href={item.github_url} target="_blank">
+                    <a
+                      title={t("projects.tooltipe_github")}
+                      href={item.github_url}
+                      target="_blank"
+                    >
                       <FaGithub />
                     </a>
                     {item.publication_url && (
                       <a
-                        title="Publication"
+                        title={t("projects.tooltipe_publication")}
                         href={item.publication_url}
                         target="_blank"
                       >
