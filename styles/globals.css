@@ -12,6 +12,9 @@ html, body, #root, #__next {
   scroll-behavior: smooth;
   height: 100vh;
   width: 100vw;
+
+  display: flex;
+  justify-content: center;
 }
 
 :root {

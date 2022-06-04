@@ -1,9 +1,9 @@
 #cv-page {
   background: #e4f8ff;
-  height: 100vh;
-  width: 100vw;
-  overflow: auto;
+  max-width: 1000px;
   padding: 10px;
+
+  overflow: auto;
 }
 
 #cv-page .top-bar {
