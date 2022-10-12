@@ -88,7 +88,7 @@ export default function Cv() {
               </li>
               <li>
                 <FaGlobeAmericas />
-                <span className="text">www.welingtonfidelis.dev.br</span>
+                <span className="text">www.welingtonfidelis.com.br</span>
               </li>
               <li>
                 <FaLinkedin />
