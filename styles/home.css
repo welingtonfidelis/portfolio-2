@@ -435,6 +435,10 @@
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+#home-page .contact .contact-form .row-2 .ant-form-item {
+  width: 100%;
+}
+
 #home-page .contact .contact-form .row-2 textarea {
   resize: none;
   height: 200px;
