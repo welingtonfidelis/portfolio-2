@@ -12,7 +12,7 @@ import {
   FaArrowCircleLeft,
   FaGithub,
 } from "react-icons/fa";
-import { GoCloudDownload } from "react-icons/go";
+import { RiDownloadCloudLine } from "react-icons/ri";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -55,7 +55,7 @@ export default function Cv() {
 
         {screenWidth > 900 ? (
           <div className="back-page" onClick={handleDownloadCv}>
-            <GoCloudDownload />
+            <RiDownloadCloudLine />
             <span>{t("cv_download")}</span>
           </div>
         ) : (
