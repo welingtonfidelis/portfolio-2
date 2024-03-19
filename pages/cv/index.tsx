@@ -1,5 +1,6 @@
 import Router from "next/router";
 import { toJpeg } from "html-to-image";
+import jsPDF from "jspdf";
 import {
   FaEnvelope,
   FaGlobeAmericas,
@@ -35,14 +36,31 @@ export default function Cv() {
   }, []);
 
   const handleDownloadCv = async () => {
-    toJpeg(document.querySelector(".container")! as HTMLElement, { quality: 1 }).then(
-      function (dataUrl) {
-        var link = document.createElement("a");
-        link.download = "welington_fidelis_cv.jpeg";
-        link.href = dataUrl;
-        link.click();
-      }
-    );
+    toJpeg(document.getElementById("pdfContainer")! as HTMLElement, {
+      quality: 1,
+    }).then(function (dataUrl) {
+      fetch(dataUrl).then((res) => {
+        // Download IMAGE
+        // const link = document.createElement("a");
+        // link.download = "welington_fidelis_cv.jpeg";
+        // link.href = dataUrl;
+        // link.click();
+
+        // Download PDF
+        res.blob().then((blob) => {
+          const doc = new jsPDF("p", "mm", "a4");
+          const reader = new FileReader();
+          const width = doc.internal.pageSize.getWidth();
+          const height = doc.internal.pageSize.getHeight();
+
+          reader.readAsDataURL(blob);
+          reader.onload = () => {
+            doc.addImage(reader.result as string, "JPEG", 0, 0, width, height);
+            doc.save("test.pdf");
+          };
+        });
+      });
+    });
   };
 
   return (
@@ -65,7 +83,7 @@ export default function Cv() {
         )}
       </div>
 
-      <div className="container">
+      <div className="container" id="pdfContainer">
         <div className="left-side">
           <div className="profile-text">
             <div className="img-bx">
@@ -98,9 +116,7 @@ export default function Cv() {
               </li>
               <li>
                 <FaGithub />
-                <span className="text">
-                  github.com/welingtonfidelis
-                </span>
+                <span className="text">github.com/welingtonfidelis</span>
               </li>
               <li>
                 <FaMapMarker />

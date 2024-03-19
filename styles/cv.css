@@ -1,6 +1,5 @@
 #cv-page {
   background: #e4f8ff;
-  max-width: 1200px;
   padding: 10px;
 
   overflow: auto;
@@ -43,6 +42,7 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   box-shadow: 0 35px 55px rgba((0, 0, 0, 0.1));
+  width: 1000px;
 }
 
 #cv-page .container .left-side {
