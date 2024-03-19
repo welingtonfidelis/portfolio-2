@@ -21,7 +21,7 @@
     "services": {
       "title": "Experiences",
       "description": "These are some experience I won working with technology until now.",
-      "list":[
+      "list": [
         {
           "image_url": "/images/icon-1.png",
           "company_name": "Venturus",
@@ -59,10 +59,69 @@
     "projects": {
       "title": "Recent Work",
       "description": "Here are some projects that I worked in my free time, to have fun and study.",
-      "tooltipe_images": "Images", 
-      "tooltipe_github": "Github", 
-      "tooltipe_publication": "Publication", 
+      "tooltipe_images": "Images",
+      "tooltipe_github": "Github",
+      "tooltipe_publication": "Publication",
       "list": [
+        {
+          "title": "Planning Truco",
+          "publication_url": "https://planning-truco-front-7rt2eflcb-welingtonfidelis.vercel.app/",
+          "github_url": "https://github.com/welingtonfidelis/planning_truco",
+          "images": [
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/planning-truco/planning_truco1.png",
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/planning-truco/planning_truco2.png",
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/planning-truco/planning_truco3.png",
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/planning-truco/planning_truco4.png",
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/planning-truco/planning_truco5.png",
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/planning-truco/planning_truco6.png"
+          ]
+        },
+        {
+          "title": "Sua Loja",
+          "publication_url": "",
+          "github_url": "https://github.com/welingtonfidelis/sua_loja_front",
+          "images": [
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/sua-loja/sua_loja1.png",
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/sua-loja/sua_loja2.png",
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/sua-loja/sua_loja3.png",
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/sua-loja/sua_loja4.png"
+          ]
+        },
+        {
+          "title": "Cote",
+          "publication_url": "https://welingtonfidelis.github.io/cote/",
+          "github_url": "https://github.com/welingtonfidelis/cote",
+          "images": ["https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/cote/cote.png"]
+        },
+        {
+          "title": "Base Project",
+          "publication_url": "",
+          "github_url": "https://github.com/welingtonfidelis/base_project_front",
+          "images": [
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/base-project/base_project1.png",
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/base-project/base_project2.png",
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/base-project/base_project3.png"
+          ]
+        },
+        {
+          "title": "Agendei",
+          "publication_url": "",
+          "github_url": "https://github.com/welingtonfidelis/agendei_front",
+          "images": [
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/agendei/agendei1.png",
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/agendei/agendei2.png",
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/agendei/agendei3.png"
+          ]
+        },
+        {
+          "title": "Minha Tarefa",
+          "publication_url": "https://welingtonfidelis.github.io/minha-tarefa/",
+          "github_url": "https://github.com/welingtonfidelis/minha-tarefa",
+          "images": [
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/minha-tarefa/minha_tarefa1.png",
+            "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/minha-tarefa/minha_tarefa2.png"
+          ]
+        },
         {
           "title": "Run Mario Game",
           "publication_url": "https://welingtonfidelis.github.io/run_mario",
@@ -380,10 +439,10 @@
       "title": "Education",
       "list": [
         {
-            "title": "Computer Science Degree",
-            "institution": "IFSULDEMINAS Campus Passos, Minas Gerais",
-            "start": "2015",
-            "end": "2018"
+          "title": "Computer Science Degree",
+          "institution": "IFSULDEMINAS Campus Passos, Minas Gerais",
+          "start": "2015",
+          "end": "2018"
         }
       ]
     },
