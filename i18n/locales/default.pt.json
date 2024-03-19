@@ -1,5 +1,6 @@
 {
   "pt-BR": {
+    "years": "anos",
     "navigation_menu": {
       "home": "Home",
       "about": "Sobre",
@@ -27,7 +28,7 @@
           "position": "Desenvolvedor Full-Stack",
           "start": "2021",
           "end": "Atual",
-          "description": "No Venturus, trabalhando nos times de Back-End e Front-End em projetos para clientes nacionais e internacionais, construídos em Node.js e React. <br/><br/> Tecnologias que tive contato: <br/> Node.js - React - JavaScript - TypeScript - Testes automatizados - Docker - MySQL - PostgreSQL - Git - Srum"
+          "description": "No Venturus, trabalhando nos times de Back-End e Front-End em projetos para clientes nacionais e internacionais, construídos em Node.js e React. <br/><br/> Tecnologias que tive contato: <br/> Node.js - React - JavaScript - TypeScript - Testes automatizados - Docker - MySQL - PostgreSQL - Git - Scrum"
         },
         {
           "image_url": "/images/icon-1.png",
@@ -35,7 +36,7 @@
           "position": "Desenvolvedor Back-End",
           "start": "2020",
           "end": "2021",
-          "description": "Na Tech4Humans Brasil, trabalhando no t ime de Back-End em um projeto de mensageria em tempo real para atendimento humanizado, construído em Node.js e React. <br/><br/> Tecnologias que tive contato: <br/> Node.js - JavaScript - Docker- PostgreSQL - Redis - Serverless - Git - Srum"
+          "description": "Na Tech4Humans Brasil, trabalhando no t ime de Back-End em um projeto de mensageria em tempo real para atendimento humanizado, construído em Node.js e React. <br/><br/> Tecnologias que tive contato: <br/> Node.js - Docker- PostgreSQL - Redis - Serverless - Git - Scrum"
         },
         {
           "image_url": "/images/icon-1.png",
@@ -43,7 +44,7 @@
           "position": "Desenvolvedor Full-Stack",
           "start": "2018",
           "end": "2020",
-          "description": "Na Ranor Rastreamento, trabalhando no Back-End, Front-End e Mobile em projetos focados no rastreamento veícular, gerenciamento de frota e logística, construídos em Node.js, PHP e IONIC. <br/> <br/> Tecnologias que tive contato: <br/> PHP - IONIC - Node.js - HTML - CSS - JavaScript - Docker- PostgreSQL"
+          "description": "Na Ranor Rastreamento, trabalhando no Back-End, Front-End e Mobile em projetos focados no rastreamento veícular, gerenciamento de frota e logística, construídos em Node.js, PHP e IONIC. <br/> <br/> Tecnologias que tive contato: <br/> PHP - IONIC - React - Node.js - HTML - CSS - JavaScript - Docker - PostgreSQL"
         },
         {
           "image_url": "/images/icon-2.png",
@@ -387,77 +388,11 @@
       ]
     },
     "language": {
-      "title": "Idiomas"
-    },
-    "skills": {
-      "title": "Habilidades Profissionais",
-      "list": [
-        {
-          "title": "HTML",
-          "level": 80
-        },
-        {
-          "title": "CSS",
-          "level": 70
-        },
-        {
-          "title": "JavaScript",
-          "level": 85
-        },
-        {
-          "title": "TypeScript",
-          "level": 50
-        },
-        {
-          "title": "React",
-          "level": 70
-        },
-        {
-          "title": "Next.js",
-          "level": 65
-        },
-        {
-          "title": "Node.js",
-          "level": 85
-        },
-        {
-          "title": "PHP",
-          "level": 40
-        },
-        {
-          "title": "React Native",
-          "level": 25
-        },
-        {
-          "title": "SQL",
-          "level": 70
-        },
-        {
-          "title": "NOSQL",
-          "level": 60
-        },
-        {
-          "title": "Git",
-          "level": 70
-        }
-      ]
-    },
-    "interests": {
-      "title": "Interesses",
-      "list": [
-        {
-          "title": "Família"
-        },
-        {
-          "title": "Natureza"
-        },
-        {
-          "title": "Estudos"
-        },
-        {
-          "title": "Jogos"
-        }
-      ]
+      "title": "Idiomas",
+      "portuguese": "Português",
+      "english": "Inglês",
+      "portuguese_lvl": "Português - Fluente",
+      "english_lvl": "Inglês - Intermediário"
     },
     "easter_egg_back_page": "Voltar para o Portfólio",
     "easter_egg_text": "Obrigado por visitar meu site, sua presença aqui é <strong>muito</strong> importante pra mim 😄. <br /> Mas, por agora, relaxe. Deixa as coisas mais pesadas fora daqui e sinta a música..."

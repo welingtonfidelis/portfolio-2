@@ -6,34 +6,15 @@ import {
   FaGlobeAmericas,
   FaLinkedin,
   FaMapMarker,
-  FaHome,
-  FaBook,
-  FaLeaf,
-  FaGamepad,
   FaArrowCircleLeft,
   FaGithub,
 } from "react-icons/fa";
 import { RiDownloadCloudLine } from "react-icons/ri";
-import { useEffect } from "react";
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import {
-  EducationInterface,
-  InterestInterface,
-  ServicesInterface,
-  SkillInterface,
-} from "../../interfaces";
+import { EducationInterface, ServicesInterface } from "../../interfaces";
 
 export default function Cv() {
-  const [screenWidth, setScreenWidth] = useState(0);
-
   const { t } = useTranslation();
-  const interestIcons = [<FaHome />, <FaBook />, <FaLeaf />, <FaGamepad />];
-
-  useEffect(() => {
-    const body = document.querySelector("body")!;
-    setScreenWidth(body.clientWidth);
-  }, []);
 
   const handleDownloadCv = async () => {
     toJpeg(document.getElementById("pdfContainer")! as HTMLElement, {
@@ -56,7 +37,7 @@ export default function Cv() {
           reader.readAsDataURL(blob);
           reader.onload = () => {
             doc.addImage(reader.result as string, "JPEG", 0, 0, width, height);
-            doc.save("test.pdf");
+            doc.save("welington_fidelis_cv.pdf");
           };
         });
       });
@@ -71,16 +52,10 @@ export default function Cv() {
           <span>{t("cv_back_page")}</span>
         </div>
 
-        {screenWidth > 900 ? (
-          <div className="back-page" onClick={handleDownloadCv}>
-            <RiDownloadCloudLine />
-            <span>{t("cv_download")}</span>
-          </div>
-        ) : (
-          <span className="size-alert-txt">
-            {t("cv_invalid_size_donwload")}
-          </span>
-        )}
+        <div className="back-page" onClick={handleDownloadCv}>
+          <RiDownloadCloudLine />
+          <span>{t("cv_download")}</span>
+        </div>
       </div>
 
       <div className="container" id="pdfContainer">
@@ -148,16 +123,10 @@ export default function Cv() {
             <h3 className="title">{t("language.title")}</h3>
             <ul>
               <li>
-                <span className="text">Portuguese</span>
-                <span className="percent">
-                  <div style={{ width: "100%" }}></div>
-                </span>
+                <span className="text">{t("language.portuguese_lvl")}</span>
               </li>
               <li>
-                <span className="text">English</span>
-                <span className="percent">
-                  <div style={{ width: "50%" }}></div>
-                </span>
+                <span className="text">{t("language.english_lvl")}</span>
               </li>
             </ul>
           </div>
@@ -187,35 +156,6 @@ export default function Cv() {
                 </div>
               </div>
             ))}
-
-            <div className="about skills">
-              <h2 className="title-2">{t("skills.title")}</h2>
-              {(
-                t("skills.list", { returnObjects: true }) as SkillInterface[]
-              ).map((item, index) => (
-                <div className="box" key={index}>
-                  <h4>{item.title}</h4>
-                  <div className="percent">
-                    <div style={{ width: `${item.level}%` }}></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="about interest">
-              <h2 className="title-2">{t("interests.title")}</h2>
-              <ul>
-                {(
-                  t("interests.list", {
-                    returnObjects: true,
-                  }) as InterestInterface[]
-                ).map((item, index) => (
-                  <li key={index}>
-                    {interestIcons[index]} {item.title}
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </div>
       </div>

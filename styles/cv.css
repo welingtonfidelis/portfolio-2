@@ -1,13 +1,13 @@
 #cv-page {
   background: #e4f8ff;
   padding: 10px;
-
   overflow: auto;
 }
 
 #cv-page .top-bar {
   display: flex;
   justify-content: space-between;
+  width: 1000px;
 }
 
 #cv-page .top-bar .size-alert-txt {
@@ -33,7 +33,7 @@
   cursor: pointer;
 }
 
-#cv-page .back-page:hover > svg {
+#cv-page .back-page:hover>svg {
   color: #03a9f4;
 }
 
@@ -124,6 +124,7 @@
 #cv-page .lateral-list ul {
   position: relative;
 }
+
 #cv-page .lateral-list ul li {
   list-style: none;
   margin: 10px 0;
@@ -225,91 +226,8 @@
   font-size: 16px;
 }
 
-#cv-page .skills .box {
-  position: relative;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  justify-content: center;
-  align-items: center;
-}
-
-#cv-page .skills .box h4 {
-  text-transform: uppercase;
-  color: #848c99;
-  font-weight: 500;
-}
-
-#cv-page .skills .box .percent {
-  position: relative;
-  width: 100%;
-  height: 10px;
-  background: #f0f0f0;
-}
-
-#cv-page .skills .box .percent div {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  background: #03a9f4;
-}
-
-#cv-page .interest ul {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding-left: 0;
-}
-
-#cv-page .interest ul li {
-  list-style: none;
-  color: #333;
-  font-weight: 500;
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
-}
-
-#cv-page .interest ul li svg {
-  color: #03a9f4;
-  font-size: 18px;
-  width: 20px;
-  margin-right: 5px;
-}
-
 #cv-page .main-website {
   margin-top: 20px;
   color: #111;
   text-decoration: none;
-}
-
-@media (max-width: 900px) {
-  #cv-page {
-    padding: 5px;
-  }
-  #cv-page .container {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  #cv-page .interest ul {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 700px) {
-  #cv-page .about .box {
-    flex-direction: column;
-  }
-
-  #cv-page .about .box .year-company {
-    margin-bottom: 5px;
-  }
-
-  #cv-page .interest ul {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  #cv-page .skills .box {
-    grid-template-columns: repeat(1, 1fr);
-  }
 }

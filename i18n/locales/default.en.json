@@ -1,5 +1,6 @@
 {
   "en": {
+    "years": "years",
     "navigation_menu": {
       "home": "Home",
       "about": "About",
@@ -27,7 +28,7 @@
           "position": "Full-Stack Developer",
           "start": "2021",
           "end": "Present",
-          "description": "At Venturus, working in the Back-End and Front-End teams on projects for national and international clients, built in Node.js and React. <br/><br/> Technologies I had contact: <br/> Node.js - React - JavaScript - TypeScript - Automated tests - Docker - MySQL - PostgreSQL - Git - Srum"
+          "description": "At Venturus, working in the Back-End and Front-End teams on projects for national and international clients, built in Node.js and React. <br/><br/> Technologies I had contact: <br/> Node.js - React - JavaScript - TypeScript - Automated tests - Docker - MySQL - PostgreSQL - Git - Scrum"
         },
         {
           "image_url": "/images/icon-1.png",
@@ -35,7 +36,7 @@
           "position": "Back-End Developer",
           "start": "2020",
           "end": "2021",
-          "description": "At Tech4Humans Brasil, working in the Back-End team on a project focused on real-time messenger for human care, build in Node.js and React. <br/><br/> Technologies I had contact: <br/> Node.js - JavaScript - Docker- PostgreSQL - Redis - Serverless - Git - Srum"
+          "description": "At Tech4Humans Brasil, working in the Back-End team on a project focused on real-time messenger for human care, build in Node.js and React. <br/><br/> Technologies I had contact: <br/> Node.js - Docker- PostgreSQL - Redis - Serverless - Git - Scrum"
         },
         {
           "image_url": "/images/icon-1.png",
@@ -43,7 +44,7 @@
           "position": "Full-Stack Developer",
           "start": "2018",
           "end": "2020",
-          "description": "At Ranor Rastreamento, working in Back-End, Front-End and Mobile projects focused on vehicle tracking, fleet management and transport logistics, built in Node.js, PHP and IONIC. <br/> <br/> Technologies I had contact: <br/> PHP - IONIC - Node.js - HTML - CSS - JavaScript - Docker- PostgreSQL"
+          "description": "At Ranor Rastreamento, working in Back-End, Front-End and Mobile projects focused on vehicle tracking, fleet management and transport logistics, built in Node.js, PHP and IONIC. <br/> <br/> Technologies I had contact: <br/> PHP - IONIC - React - Node.js - HTML - CSS - JavaScript - Docker - PostgreSQL"
         },
         {
           "image_url": "/images/icon-2.png",
@@ -387,77 +388,11 @@
       ]
     },
     "language": {
-      "title": "Languages"
-    },
-    "skills": {
-      "title": "Professional Skills",
-      "list": [
-        {
-          "title": "HTML",
-          "level": 80
-        },
-        {
-          "title": "CSS",
-          "level": 70
-        },
-        {
-          "title": "JavaScript",
-          "level": 85
-        },
-        {
-          "title": "TypeScript",
-          "level": 50
-        },
-        {
-          "title": "React",
-          "level": 70
-        },
-        {
-          "title": "Next.js",
-          "level": 65
-        },
-        {
-          "title": "Node.js",
-          "level": 85
-        },
-        {
-          "title": "PHP",
-          "level": 40
-        },
-        {
-          "title": "React Native",
-          "level": 25
-        },
-        {
-          "title": "SQL",
-          "level": 70
-        },
-        {
-          "title": "NOSQL",
-          "level": 60
-        },
-        {
-          "title": "Git",
-          "level": 70
-        }
-      ]
-    },
-    "interests": {
-      "title": "Interests",
-      "list": [
-        {
-          "title": "Family"
-        },
-        {
-          "title": "Nature"
-        },
-        {
-          "title": "Studies"
-        },
-        {
-          "title": "Games"
-        }
-      ]
+      "title": "Languages",
+      "portuguese": "Portuguese",
+      "english": "English",
+      "portuguese_lvl": "Portuguese: Fluent",
+      "english_lvl": "English: Intermediate"
     },
     "easter_egg_back_page": "Back to Portfolio",
     "easter_egg_text": "Thank you for visiting my site, your presence here is <strong>very </strong> important to me 😄. <br /> But, for now, relax. Leave the heavier stuff out of here and feel the music..."

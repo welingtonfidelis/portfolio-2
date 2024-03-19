@@ -29,7 +29,8 @@ export interface EducationInterface {
 
 export interface SkillInterface {
   title: string;
-  level: number;
+  date_start: string;
+  date_end: string;
 }
 
 export interface InterestInterface {
