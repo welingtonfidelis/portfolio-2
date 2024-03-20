@@ -1,8 +1,8 @@
-import sgMail from "@sendgrid/mail";
+import nodemailer from "nodemailer";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY!;
-const DESTINATION_EMAIL = process.env.DESTINATION_EMAIL!;
+const SENDER_MAIL = process.env.SENDER_MAIL!;
+const SENDER_MAIL_PASSWORD = process.env.SENDER_MAIL_PASSWORD!;
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { method } = req;
@@ -12,15 +12,34 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    const { email, subject, message } = req.body;  
+    const { email, subject, message } = req.body;
 
-    sgMail.setApiKey(SENDGRID_API_KEY);
-    await sgMail.send({
-      to: DESTINATION_EMAIL,
-      from: email,
-      subject,
-      html: message,
+    // Using sendgrid
+    // sgMail.setApiKey(SENDGRID_API_KEY);
+    // await sgMail.send({
+    //   to: "welingtonfidelis@gmail.com",
+    //   from: email,
+    //   subject,
+    //   html: message,
+    // });
+
+    // Using nodemailer
+    const transporter = nodemailer.createTransport({
+      service: "hotmail",
+      auth: {
+        user: SENDER_MAIL,
+        pass: SENDER_MAIL_PASSWORD,
+      },
     });
+
+    const mailOptions = {
+      from: SENDER_MAIL, // sender address
+      to: "welingtonfidelis@gmail.com", // receiver (use array of string for a list)
+      subject, // Subject line
+      html: `<strong>From: ${email}</strong><p><p><strong>Message: </strong><p>${message}`, // plain text body
+    };
+
+    await transporter.sendMail(mailOptions);
 
     res.json({ ok: true, message: "Email sent" });
   } catch (error) {
