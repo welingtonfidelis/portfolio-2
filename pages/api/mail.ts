@@ -1,8 +1,8 @@
 import nodemailer from "nodemailer";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-const SENDER_MAIL = process.env.SENDER_MAIL!;
-const SENDER_MAIL_PASSWORD = process.env.SENDER_MAIL_PASSWORD!;
+const SENDER_MAIL = process.env.NEXT_PUBLIC_SENDER_MAIL!;
+const SENDER_MAIL_PASSWORD = process.env.NEXT_PUBLIC_SENDER_MAIL_PASSWORD!;
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { method } = req;
