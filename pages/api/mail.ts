@@ -3,8 +3,8 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 const SENDER_MAIL = process.env.NEXT_PUBLIC_SENDER_MAIL!;
 const SENDER_MAIL_PASSWORD = process.env.NEXT_PUBLIC_SENDER_MAIL_PASSWORD!;
-console.log('SENDER_MAIL: ', SENDER_MAIL);
-console.log('SENDER_MAIL_PASSWORD: ', SENDER_MAIL_PASSWORD);
+console.log("SENDER_MAIL: ", SENDER_MAIL);
+console.log("SENDER_MAIL_PASSWORD: ", SENDER_MAIL_PASSWORD);
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { method } = req;
@@ -34,6 +34,19 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       },
     });
 
+    await new Promise((resolve, reject) => {
+      // verify connection configuration
+      transporter.verify(function (error, success) {
+        if (error) {
+          console.log(error);
+          reject(error);
+        } else {
+          console.log("Server is ready to take our messages");
+          resolve(success);
+        }
+      });
+    });
+
     const mailOptions = {
       from: SENDER_MAIL, // sender address
       to: "welingtonfidelis@gmail.com", // receiver (use array of string for a list)
@@ -41,11 +54,24 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       html: `<strong>From: ${email}</strong><p><p><strong>Message: </strong><p>${message}`, // plain text body
     };
 
-    await transporter.sendMail(mailOptions);
+    // await transporter.sendMail(mailOptions);
+
+    await new Promise((resolve, reject) => {
+      // send mail
+      transporter.sendMail(mailOptions, (err, info) => {
+        if (err) {
+          console.error(err);
+          reject(err);
+        } else {
+          console.log(info);
+          resolve(info);
+        }
+      });
+    });
 
     res.json({ ok: true, message: "Email sent" });
   } catch (error) {
-    console.log('error: ', error);
+    console.log("error: ", error);
     res.status(500).json({
       ok: false,
       message: error instanceof Error ? error.message : "Internal server error",
