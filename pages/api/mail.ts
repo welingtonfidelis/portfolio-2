@@ -3,6 +3,8 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 const SENDER_MAIL = process.env.NEXT_PUBLIC_SENDER_MAIL!;
 const SENDER_MAIL_PASSWORD = process.env.NEXT_PUBLIC_SENDER_MAIL_PASSWORD!;
+console.log('SENDER_MAIL: ', SENDER_MAIL);
+console.log('SENDER_MAIL_PASSWORD: ', SENDER_MAIL_PASSWORD);
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { method } = req;
@@ -43,6 +45,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     res.json({ ok: true, message: "Email sent" });
   } catch (error) {
+    console.log('error: ', error);
     res.status(500).json({
       ok: false,
       message: error instanceof Error ? error.message : "Internal server error",
