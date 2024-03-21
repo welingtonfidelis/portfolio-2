@@ -40,7 +40,7 @@ export const CarouselImage: React.FC<Props> = (props) => {
   return (
     <Modal
       centered
-      visible={props.isVisible}
+      open={props.isVisible}
       cancelButtonProps={{ hidden: true }}
       okButtonProps={{ hidden: true }}
       footer={false}

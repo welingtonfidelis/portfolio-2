@@ -44,6 +44,11 @@ export default function Home() {
   const [form] = Form.useForm();
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const initialFormValues = {
+    name: '',
+    email: '',
+    message: ''
+  }
 
   const languageOnRedux = useSelector(
     (state: { language: LanguageInterface }) => state.language
@@ -412,7 +417,7 @@ export default function Home() {
             <p>{t("contact.description")}</p>
           </div>
 
-          <Form form={form} onFinish={handleSendEmail} className="contact-form">
+          <Form initialValues={initialFormValues} form={form} onFinish={handleSendEmail} className="contact-form">
             <div className="contact-form">
               <div className="row">
                 <Form.Item
@@ -423,7 +428,6 @@ export default function Home() {
                 >
                   <input
                     type="text"
-                    name=""
                     placeholder={t("contact.input_name")}
                   />
                 </Form.Item>
@@ -439,7 +443,6 @@ export default function Home() {
                 >
                   <input
                     type="text"
-                    name=""
                     placeholder={t("contact.input_email")}
                   />
                 </Form.Item>
@@ -455,7 +458,6 @@ export default function Home() {
                   ]}
                 >
                   <textarea
-                    name=""
                     placeholder={t("contact.input_message")}
                   ></textarea>
                 </Form.Item>

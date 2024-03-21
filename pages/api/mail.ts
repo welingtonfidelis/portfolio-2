@@ -43,6 +43,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     res.json({ ok: true, message: "Email sent" });
   } catch (error) {
+    console.log("error: ", error);
     res.status(500).json({
       ok: false,
       message: error instanceof Error ? error.message : "Internal server error",
